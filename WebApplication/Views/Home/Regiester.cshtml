@@ -1,0 +1,61 @@
+﻿@{
+    ViewData["Title"] = "CookAndBuy";
+}
+
+@section Styles{
+    <link rel="stylesheet" href="~/css/Login.css" />
+}
+@*
+    <form id="login">
+        <h1>התחבר</h1>
+        <fieldset id="inputs">
+            <input id="username" type="text" placeholder="הכנס מייל" autofocus required>
+            <input id="password" type="password" placeholder="הכנס סיסמא" required>
+        </fieldset>
+        <fieldset id="actions">
+            <input type="submit" id="submit" value="Log in">
+            <a href="/Users/Create">Register</a>
+        </fieldset>
+    </form>*@
+
+<!-- פרטי התחברות -->
+<main class="form-signin">
+    <form>
+        <!-- Custom styles for this template -->
+        <link href="signin.css" rel="stylesheet">
+
+        <body class=" text-xl-center">
+            <img class="mb-4" src="https://i.postimg.cc/6q7fdMwM/newnweww.png" alt="" width="900" height="400">
+            <h1 class="h3 mb-3 fw-normal" style="font-size:50px;color:white;">Please sign in</h1>
+
+            <p>
+                <div class="form-floating d-md-inline-block w-25">
+                    <label for="floatingInput" style="color:white;font-size:40px;">Email address</label>
+                    <input type="email" class="form-control" id="floatingInput" style="font-size:30px;" placeholder="name@example.com">
+                </div>
+            </p>
+
+            <p>
+                <div class="form-floating d-md-inline-block w-25">
+                    <label for="floatingPassword" style="color:white;font-size:40px;">Password</label>
+                    <input type="password" class="form-control" style="font-size:30px;" id="floatingPassword" placeholder="Password">
+                </div>
+            </p>
+            <p>
+                <div class="checkbox d-md-inline-block btn-light w-25 ">
+                    <label>
+                        <input type="checkbox" style="color:white;" value="Remember me"> Remember me
+                    </label>
+                </div>
+            </p>
+            <p>
+                <button class="w-25 btn btn-lg btn-light" style="font-size:x-large;" type="submit">Sign in</button>
+            </p>
+
+            <p>
+                <button class="w-25 btn btn-lg btn-light" style="font-size:x-large;" type="submit">Sign up</button>
+
+            </p>
+        </body>
+    </form>
+</main>

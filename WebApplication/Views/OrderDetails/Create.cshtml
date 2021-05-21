@@ -1,0 +1,162 @@
+﻿@model WebProject.Models.OrderDetails
+
+@{
+    ViewData["Title"] = "Create";
+}
+@section Styles{
+    <link rel="stylesheet" href="~/css/Orders.css" />
+}
+
+<div class="container" style="font-size:16px">
+    <div class="title">
+        <h2>טופס ההזמנה שלך</h2>
+    </div>
+    <div class="d-flex">
+        <form action="" method="">
+            <label>
+                <span class="fname">שם פרטי <span class="required">*</span></span>
+                <input type="text" name="fname" placeholder="הכנס שם פרטי">
+            </label>
+            <label>
+                <span class="lname">שם משפחה <span class="required">*</span></span>
+                <input type="text" name="lname" placeholder="הכנס שם משפחה">
+            </label>
+            <span>עיר <span class="required">*</span></span>
+            <select name="selection">
+                <option value="select">?לאיזה עיר ההזמנה</option>
+                <option value="AFG">אום אל פאחם</option>
+                <option value="ALA">אופקים</option>
+                <option value="ALB">אור יהודה</option>
+                <option value="DZA">אור עקיבא</option>
+                <option value="ASM">אילת</option>
+                <option value="AND">אלעד</option>
+                <option value="AGO">אריאל</option>
+                <option value="AIA">אשדוד</option>
+                <option value="ATA">אשקלון</option>
+                <option value="ATG">באר שבע</option>
+                <option value="ARG">בית שאן</option>
+                <option value="ARM">בית שמש</option>
+                <option value="ABW">בני ברק</option>
+                <option value="AUS">בת ים</option>
+                <option value="AUT">גבעת שמואל</option>
+                <option value="AZE">גבעתיים</option>
+                <option value="BHS">דימונה</option>
+                <option value="BHR">הוד השרון</option>
+                <option value="BGD">הרצליה</option>
+                <option value="BRB">חדרה</option>
+                <option value="BLR">חולון</option>
+                <option value="BEL">חיפה</option>
+                <option value="BLZ">טבריה</option>
+                <option value="BEN">יבנה</option>
+                <option value="BMU">יהוד</option>
+                <option value="BTN">ירושלים</option>
+                <option value="BWA">כפר סבא</option>
+                <option value="BVT">לוד</option>
+                <option value="BRA">מעלה אדומים</option>
+                <option value="IOT">נהריה</option>
+                <option value="BRN">נוף הגליל</option>
+                <option value="BGR">נס ציונה</option>
+                <option value="BFA">נתיבות</option>
+                <option value="BDI">נתניה</option>
+                <option value="KHM">עכו</option>
+                <option value="CMR">עפולה</option>
+                <option value="CAN">פתח תקווה</option>
+                <option value="CPV">צפת</option>
+                <option value="CYM">קריית שמונה</option>
+                <option value="CAF">ראשון לציון</option>
+                <option value="TCD">רחובות</option>
+                <option value="CHL">רמלה</option>
+                <option value="CHN">רמת גן</option>
+                <option value="CXR">רמת השרון</option>
+                <option value="CCK">רעננה</option>
+                <option value="COL">שדרות</option>
+                <option value="COM">תל אביב</option>
+            </select>
+            <label>
+                <span>כתובת מגורים <span class="required">*</span></span>
+                <input type="text" name="houseadd" placeholder="הכנס כתובת" required>
+            </label>
+            <label>
+                <span>מס' טלפון <span class="required">*</span></span>
+                <input type="tel" name="Telephone" placeholder="xxx-xxxxxxx">
+            </label>
+            <label>
+                <span>כתובת מייל <span class="required">*</span></span>
+                <input type="email" name="Email" placeholder="example@xxx.xx">
+            </label>
+        </form>
+        <div class="Yorder">
+            <table>
+                <tr>
+                    <th colspan="2">ההזמנה שלך</th>
+                </tr>
+                <tr>
+                    <td>עוגיות חמות x 2(Qty)</td>
+                    <td>$88.00</td>
+                </tr>
+                <tr>
+                    <td>סה"כ לתשלום</td>
+                    <td>$88.00</td>
+                </tr>
+                <tr>
+                    <td>משלוח</td>
+                    <td>!משלוח חינם</td>
+                </tr>
+            </table><br>
+            <div>
+                <input type="radio" id="CreditCerd" name="gender" value="CreditCard">
+                <label for="תשלום בכרטיס אשראי">תשלום בכרטיס אשראי</label><br>
+            </div>
+            חברתנו תומכת בתשלום מאובטח, תוכל לשלם בכרטיס האשראי וההזמנה תגיע תוך 3-5 ימי עסקים
+            <div>
+                <input type="radio" id="Paypal" name="gender" value="CreditCard">
+                <img src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg" alt="" width="50">
+                <label for="תשלום בפייפל">Paypal</label><br>
+            </div>
+            <button type="button">בצע הזמנה</button>
+        </div><!-- Yorder -->
+    </div>
+</div>
+
+@*<h1>Create</h1>
+
+    <h4>OrderDetails</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Quantity" class="control-label"></label>
+                    <input asp-for="Quantity" class="form-control" />
+                    <span asp-validation-for="Quantity" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PriceOrder" class="control-label"></label>
+                    <input asp-for="PriceOrder" class="form-control" />
+                    <span asp-validation-for="PriceOrder" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="addressOrder" class="control-label"></label>
+                    <input asp-for="addressOrder" class="form-control" />
+                    <span asp-validation-for="addressOrder" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PhoneNumberOrder" class="control-label"></label>
+                    <input asp-for="PhoneNumberOrder" class="form-control" />
+                    <span asp-validation-for="PhoneNumberOrder" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>*@
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

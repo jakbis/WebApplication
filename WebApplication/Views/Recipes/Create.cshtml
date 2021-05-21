@@ -1,0 +1,63 @@
+﻿@model WebProject.Models.Recipe
+
+
+@{
+    ViewData["Title"] = "Create";
+}
+<style>
+    input[type="Howtomake"] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+    }
+</style>
+<h1>צור מתכון חדש</h1>
+
+<h4>מתכונים</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">שם המתכון</label>
+                <input asp-for="Name" class="form-control" placeholder="הכנס שם מתכון" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Video" class="control-label">וידאו</label>
+                <input asp-for="Video" class="form-control" placeholder="הכנס כתובת וידאו" />
+                <span asp-validation-for="Video" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label">מחיר</label>
+                <input asp-for="Price" class="form-control" placeholder="הכנס מחיר" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImagePath" class="control-label">תמונה</label>
+                <input asp-for="ImagePath" class="form-control" placeholder="הכנס לינק" />
+                <span asp-validation-for="ImagePath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @*<label asp-for="Howtomake" class="control-label">?מהו המתכון</label>*@
+                @*<input asp-for="Howtomake" type="text" size="50" class="form-control" placeholder="כתוב את המתכון בצורה מפורטת"></input>*@
+
+                <label asp-for="CategoryId" class="control-label">קטגוריה</label>
+                <select asp-for="CategoryId" class="form-control" asp-items=@ViewBag.CategoryId></select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
