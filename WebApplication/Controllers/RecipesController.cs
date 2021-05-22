@@ -139,6 +139,8 @@ namespace WebApplication.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("RecipeId,Name,CategoryId,ImagePath,Body,Price,Video,Howtomake")] Recipe recipe)
         {
+            string catname = null;
+            ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "Name", recipe.CategoryId);
             if (id != recipe.RecipeId)
             {
                 return NotFound();
@@ -148,6 +150,19 @@ namespace WebApplication.Controllers
             {
                 try
                 {
+                    switch (recipe.CategoryId)
+                    {
+                        case 1:
+                            catname = "Sweet";
+                            break;
+                        case 2:
+                            catname = "Salty";
+                            break;
+                        case 4:
+                            catname = "Cakes";
+                            break;
+
+                    }
                     _context.Update(recipe);
                     await _context.SaveChangesAsync();
                 }
@@ -162,9 +177,11 @@ namespace WebApplication.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                id = recipe.CategoryId;
+                await _context.SaveChangesAsync();
+                return RedirectToAction(catname, "Recipes", new { id });
             }
-            ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "ImagePath", recipe.CategoryId);
+           
             return View(recipe);
         }
 
