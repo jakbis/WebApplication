@@ -128,7 +128,7 @@ namespace WebApplication.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "ImagePath", recipe.CategoryId);
+            ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "Name", recipe.CategoryId);
             return View(recipe);
         }
 
