@@ -48,15 +48,16 @@
                 <select asp-for="CategoryId" class="form-control" asp-items=@ViewBag.CategoryId></select>
                 <span asp-validation-for="CategoryId" class="text-danger"></span>
                 <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-primary" />
+                    <input type="submit" value="Create" class="btn btn-primary"/>
                 </div>
-        </form>
+                <div>
+                    <a class="btn btn-danger" onclick="history.go(-1)">Back to List</a>
+                </div>
+</form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+@*<input type="button" onclick="history.go(-1)" value="Return to list"/>*@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

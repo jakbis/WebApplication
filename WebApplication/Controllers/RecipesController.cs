@@ -20,11 +20,11 @@ namespace WebApplication.Controllers
         }
 
         // GET: Recipes
-        public async Task<IActionResult> Index()
-        {
-            var webApplicationContext = _context.Recipe.Include(r => r.Category);
-            return View(await webApplicationContext.ToListAsync());
-        }
+        //public async Task<IActionResult> Index()
+        //{
+        //    var webApplicationContext = _context.Recipe.Include(r => r.Category);
+        //    return View(await webApplicationContext.ToListAsync());
+        //}
 
         public async Task<IActionResult> Salty(int? id)
         {
@@ -34,6 +34,13 @@ namespace WebApplication.Controllers
         }
 
         public async Task<IActionResult> Sweet(int? id)
+        {
+            var webApplicationContext = _context.Recipe.Where(r => r.CategoryId == id);
+            //var webApplicationContext = _context.Recipe.Include(r => r.Category);
+            return View(await webApplicationContext.ToListAsync());
+        }
+
+        public async Task<IActionResult> Cakes(int? id)
         {
             var webApplicationContext = _context.Recipe.Where(r => r.CategoryId == id);
             //var webApplicationContext = _context.Recipe.Include(r => r.Category);
@@ -59,9 +66,9 @@ namespace WebApplication.Controllers
         }
 
         // GET: Recipes/Create
-        public IActionResult Create()
+        public IActionResult Create(int? id)
         {
-            ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "ImagePath");
+            ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "Name");
             return View();
         }
         //public IActionResult Sweet()
@@ -80,12 +87,29 @@ namespace WebApplication.Controllers
         public async Task<IActionResult> Create([Bind("RecipeId,Name,CategoryId,ImagePath,Body,Price,Video,Howtomake")] Recipe recipe)
         {
             ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "ImagePath", recipe.CategoryId);
-            
+            string catname = null;
             if (ModelState.IsValid)
             {
+                switch (recipe.CategoryId)
+                {
+                    case 1:
+                        catname = "Sweet";
+                        break;
+                    case 2:
+                        catname = "Salty";
+                        break;
+                    case 4:
+                        catname = "Cake";
+                        break;
+
+                }
+                int id;
+
+                id = recipe.CategoryId;
+
                 _context.Add(recipe);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(catname, "Recipes", new { id });
             }
             
             return View(recipe);
@@ -155,11 +179,11 @@ namespace WebApplication.Controllers
             var recipe = await _context.Recipe
                 .Include(r => r.Category)
                 .FirstOrDefaultAsync(m => m.RecipeId == id);
+
             if (recipe == null)
             {
                 return NotFound();
             }
-
             return View(recipe);
         }
 
@@ -168,10 +192,28 @@ namespace WebApplication.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            
             var recipe = await _context.Recipe.FindAsync(id);
+            var recipe2 = recipe;
             _context.Recipe.Remove(recipe);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            string catname = null;
+            switch (recipe.CategoryId)
+            {
+                case 1:
+                    catname = "Sweet";
+                    return RedirectToAction(nameof(Sweet), new { id = 1 });
+                case 2:
+                    catname = "Salty";
+                    return RedirectToAction(nameof(Salty), new { id = 2 });
+                case 4:
+                    catname = "Cake";
+                    return RedirectToAction(nameof(Cakes), new { id = 4 });
+
+            }
+            //return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Sweet),new { id = 1});
+
         }
 
         private bool RecipeExists(int id)

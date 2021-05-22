@@ -49,6 +49,10 @@ namespace WebApplication.Controllers
             {
                 dir = "Salty";
             }
+            if (id == 4)
+            {
+                dir = "Cakes";
+            }
             var category = await _context.Category
                 .FirstOrDefaultAsync(m => m.CategoryId == id);
             if (category == null)
