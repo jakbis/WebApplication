@@ -99,7 +99,7 @@ namespace WebApplication.Controllers
                         catname = "Salty";
                         break;
                     case 4:
-                        catname = "Cake";
+                        catname = "Cakes";
                         break;
 
                 }
@@ -197,22 +197,18 @@ namespace WebApplication.Controllers
             var recipe2 = recipe;
             _context.Recipe.Remove(recipe);
             await _context.SaveChangesAsync();
-            string catname = null;
+            
             switch (recipe.CategoryId)
             {
                 case 1:
-                    catname = "Sweet";
                     return RedirectToAction(nameof(Sweet), new { id = 1 });
                 case 2:
-                    catname = "Salty";
                     return RedirectToAction(nameof(Salty), new { id = 2 });
                 case 4:
-                    catname = "Cake";
                     return RedirectToAction(nameof(Cakes), new { id = 4 });
-
             }
             //return RedirectToAction(nameof(Index));
-            return RedirectToAction(nameof(Sweet),new { id = 1});
+            return View(recipe);
 
         }
 
