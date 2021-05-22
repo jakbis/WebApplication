@@ -177,9 +177,9 @@ namespace WebApplication.Controllers
                         throw;
                     }
                 }
-                id = recipe.CategoryId;
+                id = recipe.RecipeId;
                 await _context.SaveChangesAsync();
-                return RedirectToAction(catname, "Recipes", new { id });
+                return RedirectToAction("Details", "Recipes", new { id });
             }
            
             return View(recipe);
