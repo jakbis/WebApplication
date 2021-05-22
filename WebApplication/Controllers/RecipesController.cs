@@ -26,6 +26,19 @@ namespace WebApplication.Controllers
             return View(await webApplicationContext.ToListAsync());
         }
 
+        public async Task<IActionResult> Salty(int? id)
+        {
+            var webApplicationContext = _context.Recipe.Where(r => r.CategoryId == id);
+            //var webApplicationContext = _context.Recipe.Include(r => r.Category);
+            return View(await webApplicationContext.ToListAsync());
+        }
+
+        public async Task<IActionResult> Sweet(int? id)
+        {
+            var webApplicationContext = _context.Recipe.Where(r => r.CategoryId == id);
+            //var webApplicationContext = _context.Recipe.Include(r => r.Category);
+            return View(await webApplicationContext.ToListAsync());
+        }
         // GET: Recipes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -51,14 +64,14 @@ namespace WebApplication.Controllers
             ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "ImagePath");
             return View();
         }
-        public IActionResult Sweet()
-        {
-            return View();
-        }
-        public IActionResult Salty()
-        {
-            return View();
-        }
+        //public IActionResult Sweet()
+        //{
+        //    return View();
+        //}
+        //public IActionResult Salty()
+        //{
+        //    return View();
+        //}
         // POST: Recipes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
