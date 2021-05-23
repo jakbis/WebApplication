@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head style="box-sizing: unset">
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
@@ -14,149 +14,243 @@
     <link href="signin.css" rel="stylesheet">
 
 </head>
-<!-- רקע -->
-<style>
-    body {
-        background-image: url("https://cdn.pixabay.com/photo/2020/10/20/21/53/donuts-5671538_1280.jpg");
-        background-color: #cccccc;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-attachment: fixed;
-        background-size: 100% 100%;
-    }
+<body>
+    <!-- רקע -->
+    <style>
+        body {
+            background-image: url("https://cdn.pixabay.com/photo/2020/10/20/21/53/donuts-5671538_1280.jpg");
+            background-color: #cccccc;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
 
-    .footer {
-        position: inherit;
-        left: 15px;
-        bottom: 0;
-        width: 100%;
-        background-color: #ffe6e6;
-        ;
-        color: black;
-        text-align: center;
-        white-space: normal;
-    }
-</style>
-<!-- שורת שליטה למעלה -->
-<nav class="navbar navbar-expand-lg navbar-light d-md-block" style="background-color:transparent;">
-    <div class="container">
-        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" style="position:relative;left:10px;white-space:nowrap">Buy & Cook</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-            <ul class="navbar-nav flex-grow-1">
-                <a href="/Home/Index">
-                    <button type="button" style="font-size: xx-large;" class="btn btn-outline-dark">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="30" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
-                            <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z" />
-                        </svg>
-                    </button>
-                </a>
-                &nbsp;
-                <a href="/Categories/Index">
-                    <button type="button" style="font-size: xx-large;" class="btn btn-outline-dark">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="30" fill="currentColor" class="bi bi-justify" viewBox="0 0 16 16">
-                            <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
-                            <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
-                        </svg>
-                    </button>
-                </a>
-                &nbsp;
-                <a href="/Home/Privacy">
-                    <button type="button" style="font-size: xx-large;" class="btn btn-outline-dark">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="30" fill="currentColor" class="bi bi-telephone-inbound" viewBox="0 0 16 16">
-                            <path d="M15.854.146a.5.5 0 0 1 0 .708L11.707 5H14.5a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 1 0v2.793L15.146.146a.5.5 0 0 1 .708 0zm-12.2 1.182a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
-                        </svg>
-                    </button>
-                </a>
-                &nbsp;
-
-                <input type="text" placeholder="Search.." style="background-color:gainsboro;height:65px;width:400px;">
-
-
-                &nbsp;
-                <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
-                <button type="button" style="font-size: xx-large;background-color: transparent;height:65px;width:300px;"
-                        class="shopping-cart-button float-right">
-                    <i class="fa fa-shopping-cart"></i>
-                    <a href="/OrderDetails/Create">
-                        <span class="text" style=" font-size: xx-large;">לעגלת הקניות</span>
+        .footer {
+            position: inherit;
+            left: 15px;
+            bottom: 0;
+            width: 100%;
+            background-color: #ffe6e6;
+            ;
+            color: black;
+            text-align: center;
+            white-space: normal;
+        }
+    </style>
+    <!-- שורת שליטה למעלה -->
+    <nav class="navbar navbar-expand-lg navbar-light d-md-block" style="background-color:transparent;">
+        <div class="container">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" style="position:relative;left:10px;white-space:nowrap">Buy & Cook</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <a href="/Home/Index">
+                        <button type="button" style="font-size: xx-large;" class="btn btn-outline-dark">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="30" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
+                                <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z" />
+                            </svg>
+                        </button>
                     </a>
-                </button>
-</nav>
-<body style="margin-bottom:auto;">
+                    &nbsp;
+                    <a href="/Categories/Index">
+                        <button type="button" style="font-size: xx-large;" class="btn btn-outline-dark">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="30" fill="currentColor" class="bi bi-justify" viewBox="0 0 16 16">
+                                @*<path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />*@
+                                <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+                                <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+                            </svg>
+                        </button>
+                    </a>
+                    &nbsp;
+                    @*<a href="/Recipes/Index">
+                            <button type="button" style="font-size: xx-large;" class="btn btn-outline-dark">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="30" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+                                    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+                                    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+                                </svg>
+                            </button>
+                        </a>*@
+
+                    @*<a href="/Users/Create">
+                            <button type="button" style="font-size: xx-large;" class="btn btn-outline-dark">הרשמה</button>
+                        </a>
+                        &nbsp;
+                        <a href="/Home/Regiester">
+                            <button type="button" style="font-size: xx-large;" class="btn btn-outline-dark">התחברות</button>
+                        </a>
+                        &nbsp;
+                    *@
+                    <a href="/Home/Privacy">
+                        <button type="button" style="font-size: xx-large;" class="btn btn-outline-dark">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="30" fill="currentColor" class="bi bi-telephone-inbound" viewBox="0 0 16 16">
+                                <path d="M15.854.146a.5.5 0 0 1 0 .708L11.707 5H14.5a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 1 0v2.793L15.146.146a.5.5 0 0 1 .708 0zm-12.2 1.182a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                            </svg>
+                        </button>
+                    </a>
+                    &nbsp;
+
+                    <input type="text" placeholder="Search.." style="background-color:gainsboro;height:65px;width:400px;">
+
+
+                    &nbsp;
+                    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+                    <button type="button" style="font-size: xx-large;background-color: transparent;height:65px;width:300px;"
+                            class="shopping-cart-button float-right">
+                        <i class="fa fa-shopping-cart"></i>
+                        <a href="/OrderDetails/Create">
+                            <span class="text" style=" font-size: xx-large;">לעגלת הקניות</span>
+                        </a>
+                    </button>
+    </nav>
+    @*<nav class="navbar navbar-expand-lg navbar-light " style="background-color:#ffe6e6;">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" style="position:relative;left:10px;font-size:xx-large">Buy & Cook</a>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-4">
+
+                        &nbsp;
+                        <li class="nav-item">
+                            <a href="/Categories/Index">
+                                <p type="button" style="font-size: xx-large;" class="btn btn-outline-dark">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="30" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
+                                        <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+                                        <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+                                    </svg>
+                                </p>
+                            </a>
+                        </li>
+                        &nbsp;
+                        <li class="nav-item">
+                            <a href="/Home/Privacy">
+                                <p type="button" style="font-size: xx-large;" class="btn btn-outline-dark float-left">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="30" fill="currentColor" class="bi bi-telephone-inbound" viewBox="0 0 16 16">
+                                        <path d="M15.854.146a.5.5 0 0 1 0 .708L11.707 5H14.5a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 1 0v2.793L15.146.146a.5.5 0 0 1 .708 0zm-12.2 1.182a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                                    </svg>
+                                </p>
+                            </a>
+                        </li>
+                        &nbsp;
+                        <form class="d-flex ">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="background-color: transparent;font-size:x-large; height: 65px; width: 300px;">
+                            <button class="btn btn-outline-dark" type="button" style="background-color:transparent;font-size:xx-large;height:65px;width:150px;">Search</button>
+                        </form>
+                        &nbsp;
+                        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+                        <button type="button" style="font-size: xx-large;background-color: transparent;height:65px;width:300px;"
+                                class="shopping-cart-button float-right">
+                            <i class="fa fa-shopping-cart"></i>
+                            <a href="/OrderDetails/Create">
+                                <span class="text" style=" font-size: xx-large;">לעגלת הקניות</span>
+                            </a>
+                        </button>
+
+                    </ul>
+
+                </div>
+            </div>
+        </nav>*@
+    @*<a href="/Users/Create">
+            <button type="button" style="font-size: xx-large;" class="btn btn-outline-dark">הרשמה</button>
+        </a>
+        &nbsp;
+        <a href="/Home/Regiester">
+            <button type="button" style="font-size: xx-large;" class="btn btn-outline-dark">התחברות</button>
+        </a>
+
+        &nbsp;
+    *@
     <!-- כאן יימצא גוף הדף -->
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-    <footer class=" footer text-center text-md-start bg-light text-muted " style="background-color: #ffe6e6;height:min-content;">
-        <section class="footer">
-            <div class=" footer text-center text-md-start mt-5 " style="text-indent:0.1px;">
-                <!-- Grid row -->
-                <div class="footer row mt-1">
-                    <!-- Grid column -->
-                    <div class="col-md-3 col-lg-5 col-md-3 mx-lg-4 mb-2">
-                        <!-- Content -->
-                        <h6 class="text-uppercase fw-bold mb-4" style="font-size:40px;">
-                            <i class="fas fa-gem me-2"></i>Buy&Cook
-                        </h6>
-                        <p style="font-size:20px">
-                            באתר שלנו תוכלו להינות ממגוון קטגוריות של מתכונים ולהזמין את כל המרכיבים שלהם במשלוח מיוחד עד הבית
-                        </p>
-                        <p class=address style="font-size:20px"><span>התזמורת 36, ראשון לציון</span>
-                        <p class=email style="font-size: 20px;"><span>cookandbuyservice@cookandbuy.co.il</span>
-                        <p class=phone style="font-size: 20px; "><span>052-6631998</span>
-
-                    </div>
-                    <!-- Grid column -->
-                    <!-- Grid column -->
-                    <div class="col-lg-5 col-lg-5 col-xl-2 mx-auto mb-4">
-                        <!-- Links -->
-                        <h6 class="text-uppercase fw-bold mb-4" style="font-size:40px;font-style:inherit">
-                            קטגוריות
-                        </h6>
-                        <p>
-
-                            <a href="/Recipes/Sweet/1" class="text-reset" style="font-size:20px">מאפים מתוקים</a>
-                        </p>
-                        <p>
-                            <a href="/Recipes/Salty/2" class="text-reset" style="font-size:20px">מאפים מלוחים</a>
-                        </p>
-                        <p>
-                            <a href="/Recipes/Cakes/4" class="text-reset" style="font-size:20px">עוגות</a>
-                        </p>
-                    </div>
-                    <!-- Grid column -->
-                    <!-- Grid column -->
-                    <div class="col-lg-5 col-lg-5 col-xl-4 mx-auto mb-4">
-                        <!-- Links -->
-                        <h6 class="text-uppercase fw-bold mb-4" style="font-size:40px;">
-                            תפריט האתר
-                        </h6>
-                        <p>
-                            <a href="/home/index" class="text-reset" style="font-size:20px">דף הבית</a>
-                        </p>
-                        <p>
-                            <a href="/Categories/Index" class="text-reset" style="font-size:20px"> קטגוריות</a>
-                        </p>
-                        <p>
-                            <a href="/home/privacy" class="text-reset" style="font-size:20px">צור קשר</a>
-                        </p>
-                    </div>
-
-                    <!-- Grid column -->
-                </div>
-                <!-- Grid row -->
-            </div>
-        </section>
-    </footer>
 </body>
 <!-- שורת שליטה למטה -->
 <!-- Footer -->
+<footer class=" footer text-center text-md-start bg-light text-muted " style="background-color: #ffe6e6;height:min-content;">
+    <section class="footer">
+        <div class=" footer text-center text-md-start mt-5 " style="text-indent:0.1px;">
+            <!-- Grid row -->
+            <div class="footer row mt-1">
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-5 col-md-3 mx-lg-4 mb-2">
+                    <!-- Content -->
+                    <h6 class="text-uppercase fw-bold mb-4" style="font-size:40px;">
+                        <i class="fas fa-gem me-2"></i>Buy&Cook
+                    </h6>
+                    <p style="font-size:20px">
+                        באתר שלנו תוכלו להינות ממגוון קטגוריות של מתכונים ולהזמין את כל המרכיבים שלהם במשלוח מיוחד עד הבית
+                    </p>
+                    <p class=address style="font-size:20px"><span>התזמורת 36, ראשון לציון</span>
+                    <p class=email style="font-size: 20px;"><span>cookandbuyservice@cookandbuy.co.il</span>
+                    <p class=phone style="font-size: 20px; "><span>052-6631998</span>
+
+                </div>
+                <!-- Grid column -->
+                <!-- Grid column -->
+                <div class="col-lg-5 col-lg-5 col-xl-2 mx-auto mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4" style="font-size:40px;font-style:inherit">
+                        קטגוריות
+                    </h6>
+                    <p>
+
+                        <a href="/Recipes/Sweet/1" class="text-reset" style="font-size:20px">מאפים מתוקים</a>
+                    </p>
+                    <p>
+                        <a href="/Recipes/Salty/2" class="text-reset" style="font-size:20px">מאפים מלוחים</a>
+                    </p>
+                    <p>
+                        <a href="/Recipes/Cakes/4" class="text-reset" style="font-size:20px">עוגות</a>
+                    </p>
+                </div>
+                <!-- Grid column -->
+                <!-- Grid column -->
+                <div class="col-lg-5 col-lg-5 col-xl-4 mx-auto mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4" style="font-size:40px;">
+                        תפריט האתר
+                    </h6>
+                    <p>
+                        <a href="/home/index" class="text-reset" style="font-size:20px">דף הבית</a>
+                    </p>
+                    <p>
+                        <a href="/Categories/Index" class="text-reset" style="font-size:20px"> קטגוריות</a>
+                    </p>
+                    <p>
+                        <a href="/home/privacy" class="text-reset" style="font-size:20px">צור קשר</a>
+                    </p>
+                </div>
+
+                <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+        </div>
+    </section>
+</footer>
+<!-- Footer -->
+@*
+    <footer class="footer" style="background-color: #ffe6e6;position:unset">
+        <div class="container" style="text-align: left;line-height: normal;margin-left: unset;font-size: 1rem;clear: both;position: relative;margin-top: 500px;">
+
+            <h1 class="display-4 fw-normal" style="color: #ff8080;font-size: 60px;position: relative;left: 90px;"> ?מי אנחנו  </h1>
+            <p class="lead fw-normal">
+                <div class=title style="color: #ff8080; font-size: 40px;position: relative;left: 135px;">
+                    <strong>צור קשר</strong>
+                </div>
+                <h1 class=list-inline-item padding-left></h1>
+            <p class=address style="font-size: x-large; color: #ff8080; position:relative; left:100px;"><span>התזמורת 36, ראשון לציון</span>
+            <p class=email style="font-size: x-large; color: #ff8080;position:relative; left:30px;"><span>cookandbuyservice@cookandbuy.co.il</span>
+            <p class=phone style="font-size: x-large; color: #ff8080;position:relative; left:145px;"><span>052-6631998</span>
+        </div>
+    </footer>
+*@
+
 </html>
 
 

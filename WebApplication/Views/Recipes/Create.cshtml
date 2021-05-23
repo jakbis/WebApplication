@@ -12,33 +12,38 @@
         box-sizing: border-box;
     }
 </style>
-<h1>צור מתכון חדש</h1>
+<h1 style="text-align:center">צור מתכון חדש</h1>
 
-<h4>מתכונים</h4>
+<h4 style="text-align:center">מתכונים</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+<div class="row" style="text-align:center">
+    <div class="col-md-4" style="direction:rtl;text-align:center">
+        <form asp-action="Create" style="text-align:center">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Name" class="control-label">שם המתכון</label>
+                <label asp-for="Name" class="control-label" style="text-align:right">שם המתכון</label>
                 <input asp-for="Name" class="form-control" placeholder="הכנס שם מתכון" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Video" class="control-label">וידאו</label>
+                <label asp-for="Video" class="control-label" style="direction:rtl">וידאו</label>
                 <input asp-for="Video" class="form-control" placeholder="הכנס כתובת וידאו" />
                 <span asp-validation-for="Video" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Price" class="control-label">מחיר</label>
+                <label asp-for="Price" class="control-label" style="direction:rtl">מחיר</label>
                 <input asp-for="Price" class="form-control" placeholder="הכנס מחיר" />
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ImagePath" class="control-label">תמונה</label>
+                <label asp-for="ImagePath" class="control-label" style="direction:rtl">תמונה</label>
                 <input asp-for="ImagePath" class="form-control" placeholder="הכנס לינק" />
                 <span asp-validation-for="ImagePath" class="text-danger"></span>
+                <label style="direction:rtl">מתכון</label>
+            </div>
+            <div class="form-group">
+                <textarea asp-for="Howtomake" dir="rtl" rows="5" style="font-family:Times New Roman;color:black;">Put your text here</textarea>
+                <span asp-validation-for="Howtomake" class="text-danger"></span>
             </div>
             <div class="form-group">
                 @*<label asp-for="Howtomake" class="control-label">?מהו המתכון</label>*@
@@ -48,12 +53,11 @@
                 <select asp-for="CategoryId" class="form-control" asp-items=@ViewBag.CategoryId></select>
                 <span asp-validation-for="CategoryId" class="text-danger"></span>
                 <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-primary"/>
-                </div>
-                <div>
                     <a class="btn btn-danger" onclick="history.go(-1)">Back to List</a>
+                    <input type="submit" value="Create" class="btn btn-primary" />
                 </div>
-</form>
+
+        </form>
     </div>
 </div>
 
