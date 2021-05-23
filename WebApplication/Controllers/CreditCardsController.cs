@@ -54,7 +54,7 @@ namespace WebApplication.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("NumberCard")] CreditCard creditCard)
+        public async Task<IActionResult> Create([Bind("NumberCard,name,date,csv")] CreditCard creditCard)
         {
             if (ModelState.IsValid)
             {

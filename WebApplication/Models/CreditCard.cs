@@ -13,6 +13,8 @@ namespace WebProject.Models
     {
         [Key]
         public string NumberCard { get; set; }
+
+        public string name { get; set; }
         private int Date { get; set; }
         private int Csv { get; set; }
         [Key, ForeignKey("NumberOrder"), Column(Order = 1)]//השלים ולבדוק

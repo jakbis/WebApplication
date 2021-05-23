@@ -4,7 +4,7 @@
     ViewData["Title"] = "Create";
 }
 @section Styles{
-    <link rel="stylesheet" href="~/css/Orders.css" />
+    <link rel="stylesheet" href="~/css/Order.css" />
 }
 
 <div class="container" style="font-size:16px">
@@ -104,16 +104,15 @@
                 </tr>
             </table><br>
             <div>
-                <input type="radio" id="CreditCerd" name="gender" value="CreditCard">
+                <input type="radio" id="CreditCerd" name="gender" value="CreditCard" checked>
                 <label for="תשלום בכרטיס אשראי">תשלום בכרטיס אשראי</label><br>
             </div>
             חברתנו תומכת בתשלום מאובטח, תוכל לשלם בכרטיס האשראי וההזמנה תגיע תוך 3-5 ימי עסקים
             <div>
-                <input type="radio" id="Paypal" name="gender" value="CreditCard">
-                <img src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg" alt="" width="50">
-                <label for="תשלום בפייפל">Paypal</label><br>
+                <a href="/CreditCards/Create">
+                    <button type="submit">בצע הזמנה</button>
+                    </a>
             </div>
-            <button type="button">בצע הזמנה</button>
         </div><!-- Yorder -->
     </div>
 </div>

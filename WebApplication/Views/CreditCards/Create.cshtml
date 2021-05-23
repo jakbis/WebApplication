@@ -3,26 +3,72 @@
 @{
     ViewData["Title"] = "Create";
 }
+<head>
+    <link rel="stylesheet" href="~/css/CreditCard.css" />
+</head>
+<
 
-<h1>Create</h1>
-
-<h4>CreditCard</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="NumberCard" class="control-label"></label>
-                <input asp-for="NumberCard" class="form-control" />
-                <span asp-validation-for="NumberCard" class="text-danger"></span>
+<div class="container-fluid px-1 px-md-2 px-lg-4 py-5 mx-auto">
+    <div class="row d-flex justify-content-center">
+        <div class="col-xl-7 col-lg-8 col-md-9 col-sm-11">
+            <div class="card border-0">
+                <div class="row justify-content-center">
+                    <h3 class="mb-4">...עוד קצת וסיימנו</h3>
+                </div>
+                <div class="row">
+                    <div class="col-sm-7 border-line pb-3">
+                        <div class="form-group">
+                            <p class="text-muted text-sm mb-0">בעל הכרטיס</p> <input type="text" name="name" placeholder="שם מלא" size="15">
+                        </div>
+                        <div class="form-group">
+                            <p class="text-muted text-sm mb-0">מספר כרטיס אשראי</p>
+                            <div class="row px-3">
+                                <input type="text" name="card-num" placeholder="0000 0000 0000 0000" size="18" id="cr_no" minlength="19" maxlength="19">
+                                <p class="mb-0 ml-3">/</p> <img class="image ml-1" src="https://i.imgur.com/WIAP9Ku.jpg">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <p class="text-muted text-sm mb-0">תוקף</p> <input type="text" name="exp" placeholder="MM/YY" size="6" id="exp" minlength="5" maxlength="5">
+                        </div>
+                        <div class="form-group">
+                            <p class="text-muted text-sm mb-0">CVV/CVC</p> <input type="password" name="cvv" placeholder="000" size="1" minlength="3" maxlength="3">
+                        </div>
+                        <div class="form-group mb-0">
+                            <div class="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" class="custom-control-input" checked> <label for="chk1" class="custom-control-label text-muted text-sm">זכור את פרטי האשראי שלי</label> </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-5 text-sm-center justify-content-center pt-4 pb-4">
+                         <small class="text-sm text-muted">סה"כ לתשלום</small>
+                        <div class="row px-3 justify-content-sm-center">
+                            <h2 class=""><span class="text-md font-weight-bold mr-2">₪</span><span class="text-danger">59.49</span></h2>
+                        </div> <button type="submit" class="btn btn-red text-center mt-4">שלם</button>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
 </div>
+
+
+@*<h1>Create</h1>
+
+    <h4>CreditCard</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="NumberCard" class="control-label"></label>
+                    <input asp-for="NumberCard" class="form-control" />
+                    <span asp-validation-for="NumberCard" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>*@
 
 <div>
     <a asp-action="Index">Back to List</a>
