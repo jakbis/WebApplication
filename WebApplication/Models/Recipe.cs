@@ -9,6 +9,8 @@ namespace WebProject.Models
     {
         [Key]
         public  int RecipeId { get; set; }
+        
+        [Required]
         public string Name { get; set; }
 
         public int CategoryId { get; set; }
@@ -18,9 +20,9 @@ namespace WebProject.Models
         public string ImagePath { get; set; }
 
         public string Body { get; set; }
-
+        
         public int Price { get; set; }
-
+        [Required]
         public string Video { get; set; }
         public string Howtomake { get; set; }
 
