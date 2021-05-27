@@ -72,9 +72,9 @@ namespace WebApplication.Controllers
             return View();
         }
 
-        public IActionResult CreateOrder()
+        public IActionResult CreateOrder(int? id)
         {
-            return this.RedirectToAction("Create", "Orders");
+            return this.RedirectToAction("Create", "Orders", new { id } );
         }
         //public IActionResult Sweet()
         //{
