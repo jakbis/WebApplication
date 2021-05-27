@@ -12,6 +12,8 @@ namespace WebProject.Models
         public Users UserId { get; set; }
         public string DateOrder { get; set; }
 
+        public int RecipeId { get; set; }
+
         public List<Recipe> Recipes { get; set; }
 
 

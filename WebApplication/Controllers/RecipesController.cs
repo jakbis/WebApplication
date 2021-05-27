@@ -71,6 +71,11 @@ namespace WebApplication.Controllers
             ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "Name");
             return View();
         }
+
+        public IActionResult CreateOrder()
+        {
+            return this.RedirectToAction("Create", "Orders");
+        }
         //public IActionResult Sweet()
         //{
         //    return View();
