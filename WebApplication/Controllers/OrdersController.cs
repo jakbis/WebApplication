@@ -46,6 +46,8 @@ namespace WebApplication.Controllers
         // GET: Orders/Create
         public IActionResult Create()
         {
+            ViewData["RecipeId"] = new SelectList(_context.Recipe, "RecipeId", "Name");
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Email");
             return View();
         }
 
@@ -54,7 +56,7 @@ namespace WebApplication.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("NumberOrder,DateOrder")] Orders orders)
+        public async Task<IActionResult> Create([Bind("NumberOrder,DateOrder,RecipeId")] Orders orders)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +88,7 @@ namespace WebApplication.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("NumberOrder,DateOrder")] Orders orders)
+        public async Task<IActionResult> Edit(int id, [Bind("NumberOrder,DateOrder,RecipeId")] Orders orders)
         {
             if (id != orders.NumberOrder)
             {

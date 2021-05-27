@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApplication.Data;
 
 namespace WebApplication.Migrations
 {
     [DbContext(typeof(WebApplicationContext))]
-    partial class WebApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20210527135516_RecipeIdtoOrders")]
+    partial class RecipeIdtoOrders
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -107,15 +109,12 @@ namespace WebApplication.Migrations
                     b.Property<int>("RecipeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("UsersUserId")
+                    b.Property<int?>("UserId1")
                         .HasColumnType("int");
 
                     b.HasKey("NumberOrder");
 
-                    b.HasIndex("UsersUserId");
+                    b.HasIndex("UserId1");
 
                     b.ToTable("Orders");
                 });
@@ -180,11 +179,6 @@ namespace WebApplication.Migrations
                     b.Property<int>("Password")
                         .HasColumnType("int");
 
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
-
                     b.HasKey("UserId");
 
                     b.ToTable("Users");
@@ -210,11 +204,11 @@ namespace WebApplication.Migrations
 
             modelBuilder.Entity("WebProject.Models.Orders", b =>
                 {
-                    b.HasOne("WebProject.Models.Users", "Users")
+                    b.HasOne("WebProject.Models.Users", "UserId")
                         .WithMany("Orders")
-                        .HasForeignKey("UsersUserId");
+                        .HasForeignKey("UserId1");
 
-                    b.Navigation("Users");
+                    b.Navigation("UserId");
                 });
 
             modelBuilder.Entity("WebProject.Models.Recipe", b =>
