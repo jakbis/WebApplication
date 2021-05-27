@@ -10,12 +10,19 @@ namespace WebProject.Models
     {
         [Key]
         public int UserId{get;set;}
-
+        
+        [Required]
+        public string Username { get; set; }
+        [Required]
+        [DataType(DataType.Password)]
         public int Password { get; set; }
-
+       
+        [Required]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
-
-        bool RememberMe { get; set; }
+        
+        bool KeepmeSignedin { get; set; }
+        
         public List<Orders> Orders { get; set; }
 
 

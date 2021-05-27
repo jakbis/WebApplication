@@ -134,6 +134,7 @@ namespace WebApplication.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("OrderDetailsOrderId")
@@ -146,6 +147,7 @@ namespace WebApplication.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Video")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("RecipeId");
@@ -171,6 +173,11 @@ namespace WebApplication.Migrations
 
                     b.Property<int>("Password")
                         .HasColumnType("int");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
                     b.HasKey("UserId");
 

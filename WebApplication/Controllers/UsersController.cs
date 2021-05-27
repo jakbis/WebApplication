@@ -19,6 +19,50 @@ namespace WebApplication.Controllers
             _context = context;
         }
 
+        // GET: Users/Create
+        public IActionResult SignUp()
+        {
+            return View();
+        }
+
+        // POST: Users/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SignUp([Bind("UserId,Username,Password,Email")] Users users)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(users);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index), "Home");
+            }
+            return View(users);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
         // GET: Users
         public async Task<IActionResult> Index()
         {
@@ -43,28 +87,7 @@ namespace WebApplication.Controllers
             return View(users);
         }
 
-        // GET: Users/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Users/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UserId,Password,Email")] Users users)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(users);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(users);
-        }
-
+        
         // GET: Users/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -86,7 +109,7 @@ namespace WebApplication.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("UserId,Password,Email")] Users users)
+        public async Task<IActionResult> Edit(int id, [Bind("UserId,Username,Password,Email")] Users users)
         {
             if (id != users.UserId)
             {
@@ -151,3 +174,4 @@ namespace WebApplication.Controllers
         }
     }
 }
+*/
