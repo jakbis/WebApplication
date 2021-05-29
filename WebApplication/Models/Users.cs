@@ -5,6 +5,12 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 namespace WebProject.Models
 {
+
+    public enum UserType
+    {
+        Client,
+        Admin
+    }
   
     public class Users
     {
@@ -25,9 +31,7 @@ namespace WebProject.Models
         
         public List<Orders> Orders { get; set; }
 
-
-
-
+        public UserType Type { get; set; } = UserType.Client;
 
     }
 }

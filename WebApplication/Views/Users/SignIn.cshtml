@@ -1,7 +1,7 @@
 ﻿@model WebProject.Models.Users
 
 @{
-    ViewData["Title"] = "SignUp";
+    ViewData["Title"] = "Signup";
     Layout = "layout_signup";
 }
 
@@ -64,15 +64,6 @@
                             <label asp-for="Password" class="control-label">Password</label>
                             <input asp-for="Password" class="form-control" data-type="password">
                             <span asp-validation-for="Password" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="Password" class="control-label">Repeat Password</label>
-                            <input for="Password" class="form-control" data-type="password">
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Email" class="control-label">Email Address</label>
-                            <input asp-for="Email" class="form-control">
-                            <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <input type="submit" value="SignUp" class="btn btn-primary"/>
