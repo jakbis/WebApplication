@@ -91,7 +91,6 @@ namespace WebApplication.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("RecipeId,Name,CategoryId,ImagePath,Body,Price,Video,Howtomake")] Recipe recipe)
         {
-            ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "ImagePath", recipe.CategoryId);
             string catname = null;
             if (ModelState.IsValid)
             {

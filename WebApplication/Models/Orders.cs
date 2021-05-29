@@ -10,8 +10,8 @@ namespace WebProject.Models
         [Key]
         public int NumberOrder { get; set; }
         public int UserId { get; set; }
-        public Users Users { get; set; }
-        public string DateOrder { get; set; }
+        public Users Users { get; set; } 
+        public string DateOrder { get; set; } = "1";
 
         public int RecipeId { get; set; }
 
