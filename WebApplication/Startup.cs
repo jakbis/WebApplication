@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using WebApplication.Data;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace WebApplication
 {
@@ -29,6 +30,12 @@ namespace WebApplication
 
             services.AddDbContext<WebApplicationContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("WebApplicationContext")));
+
+            services.AddSession(options => { options.IdleTimeout = TimeSpan.FromMinutes(10); });
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options => { 
+                options.LoginPath = "/Users/SignIn"; 
+                options.AccessDeniedPath = "/Users/AccessDenied"; });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,13 +56,17 @@ namespace WebApplication
 
             app.UseRouting();
 
+            app.UseSession();
+
             app.UseAuthorization();
+
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Users}/{action=SignUp}/{id?}");
+                    pattern: "{controller=Users}/{action=SignIn}/{id?}");
             });
         }
     }

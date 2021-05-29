@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +14,7 @@ using WebProject.Models;
 
 namespace WebApplication.Controllers
 {
+
     public class UsersController : Controller
     {
         private readonly WebApplicationContext _context;
@@ -19,12 +24,16 @@ namespace WebApplication.Controllers
             _context = context;
         }
 
-        // GET: Users/Create
+        // GET: Users/SignUp
         public IActionResult SignUp()
         {
             return View();
         }
-
+        //Get: Users/SignIn
+        public IActionResult SignIn()
+        {
+            return View();
+        }
         // POST: Users/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -34,13 +43,68 @@ namespace WebApplication.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(users);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index), "Home");
+                var q = _context.Users.FirstOrDefault(u => u.Username == users.Username);
+                var d = _context.Users.FirstOrDefault(u => u.Email == users.Email);
+
+                if (q == null && d == null)
+                {
+                    _context.Add(users);
+                    await _context.SaveChangesAsync();
+
+                    var u = _context.Users.FirstOrDefault(u => u.Username == users.Username && u.Password == users.Password);
+
+                    Signin(u);
+                    return RedirectToAction(nameof(Index), "Home");
+                }
+                else
+                    ViewData["Error"] = "Unable to register, try another user name or email";
             }
             return View(users);
         }
+
+        // POST: Users/SignIn
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult SignIn([Bind("Username,Password,Email, UserId")] Users users)
+        {
+            if (ModelState.IsValid)
+            {
+                var q = _context.Users.FirstOrDefault(u => u.Username == users.Username && u.Password == users.Password);
+                if (q != null)
+                {
+                    HttpContext.Session.SetString("username", q.Username);
+
+                    Signin(q);
+
+                    return RedirectToAction(nameof(Index), "Home");
+                }
+                else
+                    ViewData["Error"] = "Unable to Login, try another user name or password";
+            }
+            return View(users);
+        }
+
+        private async void Signin(Users account)
+        {
+            var claims = new List<Claim> { new Claim(ClaimTypes.Name, account.Username), new Claim(ClaimTypes.Role, account.Type.ToString()), };
+            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            var authProperties = new AuthenticationProperties
+            {//ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(10)}; }
+            };
+            await HttpContext.SignInAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme, 
+                new ClaimsPrincipal(claimsIdentity), 
+                authProperties);
+        }
+
+        public async Task<IActionResult> SignOut()
+        {
+            
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("SignIn");
+        }
     }
+            
 }
 
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -22,12 +23,20 @@ namespace WebApplication.Controllers
         // GET: Orders
         public async Task<IActionResult> Index()
         {
+            if (HttpContext.Session.GetString("username") == null)
+            {
+                return RedirectToAction("SignIn", "Users");
+            }
             return View(await _context.Orders.ToListAsync());
         }
 
         // GET: Orders/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            if (HttpContext.Session.GetString("username") == null)
+            {
+                return RedirectToAction("SignIn", "Users");
+            }
             if (id == null)
             {
                 return NotFound();
@@ -46,6 +55,11 @@ namespace WebApplication.Controllers
         // GET: Orders/Create
         public IActionResult Create()
         {
+
+            if (HttpContext.Session.GetString("username") == null)
+            {
+                return RedirectToAction("SignIn", "Users");
+            }
 
             ViewData["RecipeId"] = new SelectList(_context.Recipe, "RecipeId", "Name");
             ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Email");
@@ -71,6 +85,10 @@ namespace WebApplication.Controllers
         // GET: Orders/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            if (HttpContext.Session.GetString("username") == null)
+            {
+                return RedirectToAction("SignIn", "Users");
+            }
             if (id == null)
             {
                 return NotFound();
@@ -122,6 +140,10 @@ namespace WebApplication.Controllers
         // GET: Orders/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            if (HttpContext.Session.GetString("username") == null)
+            {
+                return RedirectToAction("SignIn", "Users");
+            }
             if (id == null)
             {
                 return NotFound();
@@ -136,7 +158,7 @@ namespace WebApplication.Controllers
 
             return View(orders);
         }
-
+        
         // POST: Orders/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

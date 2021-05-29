@@ -22,10 +22,10 @@ namespace WebProject.Models
         [Required]
         [DataType(DataType.Password)]
         public int Password { get; set; }
-       
+
         [Required]
         [DataType(DataType.EmailAddress)]
-        public string Email { get; set; }
+        public string Email { get; set; } = "fill";
         
         bool KeepmeSignedin { get; set; }
         

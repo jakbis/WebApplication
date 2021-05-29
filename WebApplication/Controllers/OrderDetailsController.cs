@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +12,7 @@ using WebProject.Models;
 
 namespace WebApplication.Controllers
 {
+    
     public class OrderDetailsController : Controller
     {
         private readonly WebApplicationContext _context;
@@ -21,13 +24,22 @@ namespace WebApplication.Controllers
 
         // GET: OrderDetails
         public async Task<IActionResult> Index()
+
         {
+            if (HttpContext.Session.GetString("username") == null)
+            {
+                return RedirectToAction("SignIn", "Users");
+            }
             return View(await _context.OrderDetails.ToListAsync());
         }
 
         // GET: OrderDetails/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            if (HttpContext.Session.GetString("username") == null)
+            {
+                return RedirectToAction("SignIn", "Users");
+            }
             if (id == null)
             {
                 return NotFound();
@@ -46,6 +58,10 @@ namespace WebApplication.Controllers
         // GET: OrderDetails/Create
         public IActionResult Create()
         {
+            if (HttpContext.Session.GetString("username") == null)
+            {
+                return RedirectToAction("SignIn", "Users");
+            }
             return View();
         }
 
@@ -68,6 +84,10 @@ namespace WebApplication.Controllers
         // GET: OrderDetails/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            if (HttpContext.Session.GetString("username") == null)
+            {
+                return RedirectToAction("SignIn", "Users");
+            }
             if (id == null)
             {
                 return NotFound();
@@ -119,6 +139,10 @@ namespace WebApplication.Controllers
         // GET: OrderDetails/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            if (HttpContext.Session.GetString("username") == null)
+            {
+                return RedirectToAction("SignIn", "Users");
+            }
             if (id == null)
             {
                 return NotFound();

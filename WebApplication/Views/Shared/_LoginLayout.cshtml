@@ -4,10 +4,14 @@
 <html lang="en" style="height:100%">
 
 <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.83.1">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-     <link rel="stylesheet" href="~/css/homepage.css" />
+    <link rel="stylesheet" href="~/css/site.css"/>
 </head>
-
 <style>
     body {
         background-image: url("https://cdn.pixabay.com/photo/2020/10/20/21/53/donuts-5671538_1280.jpg");
@@ -18,16 +22,28 @@
         background-size: 100% 100%;
     }
 
+    .footer {
+        position: unset;
+        bottom: 0;
+        width: 100%;
+        background-color: white;
+        color: black;
+        text-align: center;
+        white-space: normal;
+    }
 </style>
-
 <body>
+   
+   
     <!-- כאן יימצא גוף הדף -->
     <div class="container">
-        <main role="main">
+        <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 </body>
+<!-- שורת שליטה למטה -->
+<!-- Footer -->
 
 </html>
 

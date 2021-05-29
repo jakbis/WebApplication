@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -64,17 +66,26 @@ namespace WebApplication.Controllers
 
             return View(recipe);
         }
-
+        
         // GET: Recipes/Create
         public IActionResult Create(int? id)
         {
+            if (HttpContext.Session.GetString("username") == null)
+            {
+                return RedirectToAction("SignIn", "Users");
+            }
             ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "Name");
             return View();
         }
-
+        
         public IActionResult CreateOrder(int? id)
         {
-            return this.RedirectToAction("Create", "Orders", new { id } );
+            if (HttpContext.Session.GetString("username") == null || HttpContext.Session.IsAvailable == false)
+            {
+                return RedirectToAction("SignIn", "Users");
+                
+            }
+            return this.RedirectToAction("Create", "Orders", new { id });
         }
         //public IActionResult Sweet()
         //{
@@ -119,9 +130,14 @@ namespace WebApplication.Controllers
             return View(recipe);
         }
 
+        
         // GET: Recipes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            if (HttpContext.Session.GetString("username") == null)
+            {
+                return RedirectToAction("SignIn", "Users");
+            }
             if (id == null)
             {
                 return NotFound();
@@ -192,6 +208,10 @@ namespace WebApplication.Controllers
         // GET: Recipes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            if (HttpContext.Session.GetString("username") == null)
+            {
+                return RedirectToAction("SignIn", "Users");
+            }
             if (id == null)
             {
                 return NotFound();

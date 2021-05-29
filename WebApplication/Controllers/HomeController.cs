@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -17,14 +19,18 @@ namespace WebApplication.Controllers
         {
             _logger = logger;
         }
-
+        
         public IActionResult Index()
         {
             return View();
         }
-
+        
         public IActionResult Privacy()
         {
+            if (HttpContext.Session.GetString("username") == null)
+            {
+                return RedirectToAction("SignIn", "Users");
+            }
             return View();
         }
 

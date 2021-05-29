@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -18,12 +20,23 @@ namespace WebApplication.Controllers
         {
             _context = context;
         }
-
+        
         // GET: Categories
         public async Task<IActionResult> Index()
         {
+            
+            if (HttpContext.Session.GetString("username") == null)
+            {
+                return RedirectToAction("SignIn", "Users");
+            }
             return View(await _context.Category.ToListAsync());
         }
+
+        public async Task<IActionResult> ClientIndex()
+        {
+            return View(await _context.Category.ToListAsync());
+        }
+
 
         //public IActionResult Sweet()
         //{
@@ -36,6 +49,7 @@ namespace WebApplication.Controllers
         // GET: Categories/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+
             string dir = null;
             if (id == null)
             {
@@ -68,6 +82,10 @@ namespace WebApplication.Controllers
         // GET: Categories/Create
         public IActionResult Create()
         {
+            if (HttpContext.Session.GetString("username") == null)
+            {
+                return RedirectToAction("SignIn", "Users");
+            }
             return View();
         }
 
@@ -87,9 +105,14 @@ namespace WebApplication.Controllers
             return View(category);
         }
 
+        [Authorize]
         // GET: Categories/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            if (HttpContext.Session.GetString("username") == null)
+            {
+                return RedirectToAction("SignIn", "Users");
+            }
             if (id == null)
             {
                 return NotFound();
@@ -139,8 +162,13 @@ namespace WebApplication.Controllers
         }
 
         // GET: Categories/Delete/5
+
         public async Task<IActionResult> Delete(int? id)
         {
+            if (HttpContext.Session.GetString("username") == null)
+            {
+                return RedirectToAction("SignIn", "Users");
+            }
             if (id == null)
             {
                 return NotFound();
