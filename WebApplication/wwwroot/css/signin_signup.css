@@ -1,0 +1,41 @@
+﻿body {
+    margin: 0;
+    color: white;
+    background: #c8c8c8;
+
+}
+.login-wrap {
+    width: 150%;
+    margin: auto;
+    max-width:650px;
+    min-height:670px;
+    position: relative;
+    background: url(https://i.ibb.co/H7ggKQj/24-05-2021-12-43-05.png) no-repeat center;
+    background-position-x:center;
+    background-size: cover;
+    margin-block-start: 10%;
+    text-align: center;
+    box-shadow: 250px 80px 300px 300px rgba(0,0,0,.30),100px 30px 60px 0 rgba(0,0,0,.30);
+}
+col-md-8 {
+    bottom: -140px;
+    padding-right: 50px;
+    padding-left: 50px;
+    width:100%;
+    position:center;
+    text-align:center;
+}
+.login-html {
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    padding: 100px 100px 40px 70px;
+    background: rgba(255,255,255,.1);
+    margin-left:30px;
+    margin-top:-20px;
+    white-space:30px;
+}
+.control-label{
+    color:white;
+    font-size:30px;
+}

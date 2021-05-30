@@ -7,10 +7,60 @@
 
 @section styles{
 
-    <link rel="stylesheet" href="~/css/homepage.css" />
+    <link rel="stylesheet" href="~/css/signin_signup.css" />
 }
 
-<h1>Login</h1>
+
+
+<div class="login-wrap">
+    <div class="login-html">
+        <form asp-action="SignIn">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Username" class="control-label">Username</label>
+                <input asp-for="Username" class="form-control">
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label">Password</label>
+                <input asp-for="Password" class="form-control" data-type="password">
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            &emsp;
+            <div class="form-group">
+                <input type="submit" value="SignIn" class="btn btn-light" style="font-size:25px;color:hotpink;" />
+            </div>
+            &emsp;
+            <div class="control-label">Not Registered? <a class="btn btn-light" style="font-size:20px;color:hotpink;" href="/Users/SignUp">Click Here </a> </div>
+
+            @if (ViewBag.Error != null)
+            {
+                <div class="text-danger">@ViewBag.Error</div>
+
+            }
+        </form>
+    </div>
+    
+
+</div>
+<style>
+    body {
+        background-image: url("https://cdn.pixabay.com/photo/2020/10/20/21/53/donuts-5671538_1280.jpg");
+        background-attachment: fixed;
+    }
+</style>
+<head>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+</head>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
 @*<form asp-action="SignUp">
         <div class="login-wrap">
             <div class="login-html">
@@ -45,51 +95,3 @@
             </div>
         </div>
     </form>*@
-<div class="row">
-    @*<div class="login-wrap">
-        <div class="login-html">*@
-    @*<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab" style="font-size:30px;">Sign In</label>
-        <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab" style="font-size:30px;">Sign Up</label>*@
-    <div class="col-md-4">
-        
-            <form asp-action="SignIn">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="Username" class="control-label">Username</label>
-                    <input asp-for="Username" class="form-control">
-                    <span asp-validation-for="Username" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Password" class="control-label">Password</label>
-                    <input asp-for="Password" class="form-control" data-type="password">
-                    <span asp-validation-for="Password" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="SignIn" class="btn btn-primary" />
-
-                </div>
-            </form>
-            @if (ViewBag.Error != null)
-            {
-                <div class="text-danger">@ViewBag.Error</div>
-            }
-        </div>
-    
-</div>
-<div>Not Registered? <a class="btn btn-primary" href="/Users/SignUp">Click Here </a>to Register.</div>
-            <style>
-                body {
-                    background-image: url("https://cdn.pixabay.com/photo/2020/10/20/21/53/donuts-5671538_1280.jpg");
-                    background-attachment: fixed;
-                }
-            </style>
-            <head>
-
-                <link rel="preconnect" href="https://fonts.gstatic.com">
-                <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-
-            </head>
-
-            @section Scripts {
-                @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-            }

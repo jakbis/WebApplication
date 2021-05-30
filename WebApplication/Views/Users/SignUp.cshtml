@@ -5,12 +5,12 @@
     Layout = "_LoginLayout";
 }
 
-@*@section styles{
+@section styles{
 
-        <link rel="stylesheet" href="~/css/homepage.css" />
-    }*@
+    <link rel="stylesheet" href="~/css/signin_signup.css" />
 
-<h1>Register a new user</h1>
+}
+
 @*<form asp-action="SignUp">
         <div class="login-wrap">
             <div class="login-html">
@@ -45,14 +45,14 @@
             </div>
         </div>
     </form>*@
-<div class="row">
+<div class="login-wrap">
     @*<div class="login-wrap">
         <div class="login-html">*@
     @*<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab" style="font-size:30px;">Sign In</label>
         <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab" style="font-size:30px;">Sign Up</label>*@
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <div class="col-md-4">
-        <div class="sign-up-htm">
+    <div class="login-wrap">
+        <div class="login-html">
             <form asp-action="SignUp">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
@@ -75,19 +75,19 @@
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="SignUp" class="btn btn-primary" />
-
+                    <input type="submit" value="SignUp" class="btn btn-light" style="font-size:25px;color:hotpink;" />
                 </div>
+                <div class="control-label">Already registerd? <a class="btn btn-light" style="font-size:20px;color:hotpink;" asp-action="SignIn">Click Here </a> </div>
 
+
+                @if (ViewBag.Error != null)
+                {
+                    <div class="text-danger">@ViewBag.Error</div>
+                }
             </form>
-            @if (ViewBag.Error != null)
-            {
-            <div class="text-danger">@ViewBag.Error</div>
-            }
         </div>
     </div>
 </div>
-<div>Already registerd?<a asp-action="SignIn" class="btn btn-primary"> Click Here </a> To Login</div>
 <style>
     body {
         background-image: url("https://cdn.pixabay.com/photo/2020/10/20/21/53/donuts-5671538_1280.jpg");
