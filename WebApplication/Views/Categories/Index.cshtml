@@ -43,7 +43,7 @@
                     </div>*@
                 <div class="card text-center" style="width: 18rem;background-color:transparent;margin:15px;border:none;">
                     <div class="card-body">
-                        @if (Context.User != null && Context.User.Claims != null && Context.User.Claims.Count() > 0)
+                        @if (this.User.IsInRole("Admin"))
                         {
                             <a asp-action="Delete" asp-route-id="@item.CategoryId" class="btn btn-into btn-danger card-title card-header" style="color:black;border:solid;font-weight:bold;">Delete</a>
                         }

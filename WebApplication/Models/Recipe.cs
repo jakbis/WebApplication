@@ -26,7 +26,8 @@ namespace WebProject.Models
         public string Video { get; set; }
         public string Howtomake { get; set; }
 
-    
+        public string Author { get; set; }
+
     }
     
 }

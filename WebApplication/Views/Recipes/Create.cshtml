@@ -26,6 +26,11 @@
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Author" class="control-label" style="text-align:right">שם</label>
+                <input asp-for="Author" class="form-control" value="@User.Identity.Name">
+                <span asp-validation-for="Author" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Video" class="control-label" style="direction:rtl">וידאו</label>
                 <input asp-for="Video" class="form-control" placeholder="הכנס כתובת וידאו" />
                 <span asp-validation-for="Video" class="text-danger"></span>

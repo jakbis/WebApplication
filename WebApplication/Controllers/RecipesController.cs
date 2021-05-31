@@ -100,7 +100,7 @@ namespace WebApplication.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RecipeId,Name,CategoryId,ImagePath,Body,Price,Video,Howtomake")] Recipe recipe)
+        public async Task<IActionResult> Create([Bind("RecipeId,Name,CategoryId,ImagePath,Body,Price,Video,Howtomake,Author")] Recipe recipe)
         {
             string catname = null;
             if (ModelState.IsValid)
@@ -157,7 +157,7 @@ namespace WebApplication.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("RecipeId,Name,CategoryId,ImagePath,Body,Price,Video,Howtomake")] Recipe recipe)
+        public async Task<IActionResult> Edit(int id, [Bind("RecipeId,Name,CategoryId,ImagePath,Body,Price,Video,Howtomake,Author")] Recipe recipe)
         {
             string catname = null;
             ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "Name", recipe.CategoryId);

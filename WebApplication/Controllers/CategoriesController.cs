@@ -32,10 +32,10 @@ namespace WebApplication.Controllers
             return View(await _context.Category.ToListAsync());
         }
 
-        public async Task<IActionResult> ClientIndex()
-        {
-            return View(await _context.Category.ToListAsync());
-        }
+        //public async Task<IActionResult> ClientIndex()
+        //{
+        //    return View(await _context.Category.ToListAsync());
+        //}
 
 
         //public IActionResult Sweet()
