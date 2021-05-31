@@ -19,7 +19,12 @@ html {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
-  margin-right: auto;
+  
+  
+  
+  
+  
+  auto;
   margin-left: auto;
 }
 
@@ -60,8 +65,7 @@ html {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+  
 }
 
 .no-gutters {
