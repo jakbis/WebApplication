@@ -21,7 +21,10 @@ namespace WebProject.Models
         public string Username { get; set; }
         [Required]
         [DataType(DataType.Password)]
-        public int Password { get; set; }
+        public string Password { get; set; }
+        
+        [DataType(DataType.Password)]
+        public string RepeatPassword { get; set; }
 
         [Required]
         [DataType(DataType.EmailAddress)]

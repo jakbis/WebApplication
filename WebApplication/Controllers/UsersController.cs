@@ -39,7 +39,7 @@ namespace WebApplication.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> SignUp([Bind("UserId,Username,Password,Email")] Users users)
+        public async Task<IActionResult> SignUp([Bind("UserId,Username,Password,Email,RepeatPassword")] Users users)
         {
             if (ModelState.IsValid)
             {
@@ -53,13 +53,18 @@ namespace WebApplication.Controllers
 
                     var u = _context.Users.FirstOrDefault(u => u.Username == users.Username && u.Password == users.Password);
 
-                    Signin(u);
-                    return RedirectToAction(nameof(Index), "Home");
+                    if(users.Password == users.RepeatPassword)
+                    {
+                        Signin(u);
+                        return RedirectToAction(nameof(Index), "Home");
+                    }
+                    else ViewData["Error"] = "Password and Repeat Password are not equal";
                 }
                 else
                     ViewData["Error"] = "Unable to register, try another user name or email";
             }
             return View(users);
+
         }
 
         // POST: Users/SignIn
