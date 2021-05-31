@@ -45,20 +45,21 @@ namespace WebApplication.Controllers
             {
                 var q = _context.Users.FirstOrDefault(u => u.Username == users.Username);
                 var d = _context.Users.FirstOrDefault(u => u.Email == users.Email);
-
+                
                 if (q == null && d == null)
                 {
-                    _context.Add(users);
-                    await _context.SaveChangesAsync();
-
-                    var u = _context.Users.FirstOrDefault(u => u.Username == users.Username && u.Password == users.Password);
-
-                    if(users.Password == users.RepeatPassword)
+                    if (users.Password == users.RepeatPassword)
                     {
+                        _context.Add(users);
+                        await _context.SaveChangesAsync();
+
+                        var u = _context.Users.FirstOrDefault(u => u.Username == users.Username && u.Password == users.Password);
+
                         Signin(u);
                         return RedirectToAction(nameof(Index), "Home");
+
                     }
-                    else ViewData["Error"] = "Password and Repeat Password are not equal";
+                    else ViewData["Error"] = "Password Invalid";
                 }
                 else
                     ViewData["Error"] = "Unable to register, try another user name or email";
