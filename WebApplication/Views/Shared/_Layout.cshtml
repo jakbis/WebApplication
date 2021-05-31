@@ -64,7 +64,7 @@
                     @*<a class="navbar-toggler-icon" asp-area="" asp-controller="Users" asp-action="SignOut">התנתק</a>*@
                     @if (Context.User != null && Context.User.Claims != null && Context.User.Claims.Count() > 0)
                     {
-                        <a class="btn" asp-area="" asp-controller="Users" asp-action="SignOut" style=" font-size: xx-large;">התנתק</a>
+                        <a class="btn" asp-area="" asp-controller="Users" asp-action="LogOut" style=" font-size: xx-large;">התנתק</a>
                     }
                     else
                     {
