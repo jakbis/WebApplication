@@ -27,10 +27,6 @@ namespace WebApplication.Controllers
         
         public IActionResult Privacy()
         {
-            if (HttpContext.Session.GetString("username") == null)
-            {
-                return RedirectToAction("SignIn", "Users");
-            }
             return View();
         }
 
