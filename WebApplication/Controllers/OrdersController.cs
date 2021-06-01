@@ -62,7 +62,8 @@ namespace WebApplication.Controllers
             }
 
             ViewData["RecipeId"] = new SelectList(_context.Recipe, "RecipeId", "Name");
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Email");
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Username");
+
             return View();
         }
 
@@ -72,7 +73,8 @@ namespace WebApplication.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("NumberOrder,DateOrder,RecipeId,UserId")] Orders orders)
-        {
+        {          
+
             if (ModelState.IsValid)
             {
                 _context.Add(orders);

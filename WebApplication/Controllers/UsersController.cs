@@ -103,7 +103,7 @@ namespace WebApplication.Controllers
                 authProperties);
         }
 
-        public async Task<IActionResult> SignOut()
+        public async Task<IActionResult> LogOut()
         {
             
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
