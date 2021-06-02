@@ -1,70 +1,201 @@
-﻿@*
-@{//כל הדף הזה הפך להיות דף הSIGNUP
-    ViewData["Title"] = "CookAndBuy";
+﻿<!-- Start Header -->
+@section Styles{
+    <link rel="stylesheet" href="~/css/home_index_.css" />
+    <link rel="stylesheet" href="~/css/layout_home.css" />
 
 }
-@section styles{
-    <link rel="stylesheet" href="~/css/homepage.css" />
-}
-
-<div class="login-wrap">
-    <div class="login-html">
-        <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
-        <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
-        <div class="login-form">
-            <div class="sign-in-htm">
-                <div class="group">
-                    <label for="user" class="label">Username</label>
-                    <input id="user" type="text" class="input">
+<div class='header'>
+    <div class='overlay'>
+        <div class='container table'>
+           
+            <div class='table-row'>
+                <div class='intro text-center'>
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    <h1 class='upper'>BUY & <span class='main-color'> COOK</span></h1>
+                    <p>
+                        <br>
+                        ,באתר שלנו ניתן להינות ממגוון רחב של מתכונים<br>
+                        ...אנו מתמחים בתחום האפייה והקונדטוריה- מאפים מתוקים , מלוחים , עוגות ועוד <br>
+                        בכדי לרכוש את השירותים שלנו אנא הירשמו כ-לקוחות פרימיום
+                    </p>
+                    &nbsp;
+                    &nbsp;
+                    <div class='buttons'>
+                        <a href="/Users/SignIn" class='btn btn-outline-light' style="background-color: #ac8d99;font-size:xx-large;">Sign In</a>
+                        &nbsp;
+                        <a href="/Users/SignUp" class='btn btn-outline-light' style="background-color: #ac8d99;font-size:xx-large;">Sign Up</a>
+                    </div>
                 </div>
-                <div class="group">
-                    <label for="pass" class="label">Password</label>
-                    <input id="pass" type="password" class="input" data-type="password">
-                </div>
-                <div class="group">
-                    <input id="check" type="checkbox" class="check" checked>
-                    <label for="check"><span class="icon"></span> Keep me Signed in</label>
-                </div>
-                <div class="group">
-                    <input type="submit" class="button" value="Sign In">
-                </div>
-                <div class="hr"></div>
             </div>
-            <div class="sign-up-htm">
-                <div class="group">
-                    <label for="user" class="label">Username</label>
-                    <input id="user" type="text" class="input">
+        </div>
+        <span class='arrow'>
+            <i class='fa fa-chevron-down'></i>
+        </span>
+    </div>
+</div>
+
+<!-- End Header -->
+<!-- Start Features -->
+
+<div class=' features text-center'>
+    <div class='container'>
+        <div class='box'>
+            <i class='fa fa-youtube-play fa-3x'></i>
+            <h3>סרטוני הדרכה</h3>
+            <p>.תוכלו להינות ממגוון סרטוני הדרכה מפורטים לצורך ביצוע המתכון על הצד הטוב ביותר</p>
+        </div>
+        <div class='box'>
+            <i class='fa fa-credit-card fa-3x'></i>
+            <h3>ממשק מאובטח</h3>
+            <p>.תוכלו להירשם לאתר שלנו ולהינות מהמתכונים המגוונים בתשלום מאובטח</p>
+        </div>
+        <div class='box'>
+            <i class='fa fa-ils fa-3x'></i>
+            <h3>מחיר משתלם</h3>
+            <p>.תוכלו להינות ממחיר משתלם לרכישת מגוון המתכונים ומהשירות הטוב ביותר בתחום</p>
+        </div>
+        <div class='box'>
+            <i class='fa fa-mobile fa-3x'></i>
+            <h3>טיפים</h3>
+            <p>.תוכלו ליצור קשר עם קונדיטור מוסמך אשר יתן הכוונה בביצוע המתכון וטיפים לתוצאה הטעימה ביותר</p>
+        </div>
+    </div>
+</div>
+
+<!-- End Features -->
+<!-- Start Subscribe -->
+
+<div class='our-work text-center'>
+    <div class='container'>
+        <h2 class='upper'>המתכונים <span class='main-color'>שלנו</span></h2>
+        <p>
+            ניתן להתרשם מהמתכונים שלנו כאן למטה<br>
+        </p>
+        <div class='items-box'>
+            <div class='item'>
+                <img src='https://apiv1.chef-lavan.co.il/uploads/f_57f4c52001b97_1475659040.jpg' alt='Work 4'>
+                <div class='over text-center'>
+                    <h4 class='upper'>עוגת גבינה</h4>
+                    <p>
+                        עוגת גבינה משובחת<br>
+                        .על בסיס ביסקוויטים וקרם מסקרפונה
+                    </p>
+                    <button class='upper'>לצפייה במתכון</button>
                 </div>
-                <div class="group">
-                    <label for="pass" class="label">Password</label>
-                    <input id="pass" type="password" class="input" data-type="password">
+            </div>
+            <div class='item'>
+                <img src='https://apiv1.chef-lavan.co.il/uploads/f_57f4bf0678759_1475657478.jpg' alt='Work 5'>
+                <div class='over text-center'>
+                    <h4 class='upper'>עוגיות שוקולד צ'יפס</h4>
+                    <p>
+                        עוגיות שוקולד צ'יפס <br>
+                        .עשויות מבצק פריך במילוי פצפוצי שוקולד חלב
+                    </p>
+                    <button class='upper'>לצפייה במתכון</button>
                 </div>
-                <div class="group">
-                    <label for="pass" class="label">Repeat Password</label>
-                    <input id="pass" type="password" class="input" data-type="password">
+            </div>
+            <div class='item'>
+                <img src='https://img.mako.co.il/2013/10/30/krants_oogionet_c.jpg' alt='Work 6'>
+                <div class='over text-center'>
+                    <h4 class='upper'>עוגת שמרים</h4>
+                    <p>
+                       עוגה מבצק שמרים <br>
+                        .ממולאת במגוון ששוקולדים עשירים
+                    </p>
+                    <button class='upper'>לצפייה במתכון</button>
                 </div>
-                <div class="group">
-                    <label for="pass" class="label">Email Address</label>
-                    <input id="pass" type="text" class="input">
+            </div>
+
+</div>
+
+<!-- End Our Work -->
+<!-- Start Testimonials -->
+
+<div class='our-team text-center'>
+    <div class='container'>
+        <h2 class='upper'>הצוות <span class='main-color'>שלנו</span></h2>
+        <p class='main'>
+            הכירו את הצוות שלנו-מאי ,יקיר ,עידן וליאור<br>
+             .אשר עובדים שעות ארוכות מסביב לשעון כדי לספק לכם את המתכונים השווים ביותר
+        </p>
+        <div class='the-team'>
+            <div class='person'>
+                <img src="https://i.ibb.co/sP8c4gf/image.jpg" alt="image" >
+                <h3 class='upper'>עידן טלמור</h3>
+                <div class='social-icons'>
+                    <i class='fa fa-facebook fa-lg'></i>
+                    <i class='fa fa-twitter fa-lg'></i>
+                    <i class='fa fa-instagram fa-lg'></i>
                 </div>
-                <div class="group">
-                    <input type="submit" class="button" value="Sign Up">
+                <p>
+                    .אחראי על  מתכוני האתר ,  שיווק ופרסום ברשתות החברתיות
+                </p>
+            </div>
+            <div class='person'>
+                <img src="https://i.ibb.co/VL8XryM/image.png" alt="image" >
+                <h3 class='upper'>יקיר בן ישי</h3>
+                <div class='social-icons'>
+                    <i class='fa fa-facebook fa-lg'></i>
+                    <i class='fa fa-twitter fa-lg'></i>
+                    <i class='fa fa-instagram fa-lg'></i>
                 </div>
+                <p>
+                    .אחראי על התכנות הפונקציונלי באתר , ממשק האתר והנגישות למשתמשים
+                </p>
+            </div>
+            <div class='person'>
+                <img src="https://i.ibb.co/DwZ5Z0v/image.jpg" alt="image">
+                <h3 class='upper'>מאי זמיר</h3>
+                <div class='social-icons'>
+                    <i class='fa fa-facebook fa-lg'></i>
+                    <i class='fa fa-twitter fa-lg'></i>
+                    <i class='fa fa-instagram fa-lg'></i>
+                </div>
+                <p>
+                    .אחראית על נראות האתר , עיצוב הממשק והנראות הפרונטלית של האתר
+                </p>
+            </div>
+            <div class='person'>
+                <img src="https://i.ibb.co/rdP2VLp/khtur.jpg" alt="ליאור">
+                <h3 class='upper'>ליאור תורג'מן</h3>
+                <div class='social-icons'>
+                    <i class='fa fa-facebook fa-lg'></i>
+                    <i class='fa fa-twitter fa-lg'></i>
+                    <i class='fa fa-instagram fa-lg'></i>
+                </div>
+                <p>
+                   .אחראית על המתכונים ועל תחום הקונדיטוריה
+                </p>
             </div>
         </div>
     </div>
 </div>
-<style>
-    body {
-        background-image: url("https://cdn.pixabay.com/photo/2020/10/20/21/53/donuts-5671538_1280.jpg");
-        background-attachment: fixed;
-    }
-</style>
-<head>
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-
-</head>
-
-*@
+<div class='contact text-center'>
+    <div class='overlay'>
+        <div class='container'>
+            <h2 class='upper'>?צריכים<span class='main-color'>עזרה</span></h2>
+            <p class='main'>
+                לשירותי תמיכה מצוות הקונדיטורים הכוללים<br>
+                ..הכוונה ייעוץ בתחום המתכונים , טיפים , הצעות ליעול ועוד
+            </p>
+            <form>
+                <input type='email' placeholder='Your Email'>
+                <input type='text' placeholder='Subject'>
+                <textarea placeholder='Message'></textarea>
+                <div class='info'>
+                    <button class='upper'>פנו אלינו</button>
+                    <span class='form-icons'>
+                        <i class='fa fa-facebook fa-lg'></i>
+                        <i class='fa fa-twitter fa-lg'></i>
+                        <i class='fa fa-instagram fa-lg'></i>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
