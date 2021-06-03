@@ -47,9 +47,15 @@
                         </button>
                     </a>
                     &nbsp;
+                    <form asp-controller="Recipes" asp-action="Index">
+                        <div class="input-group rounded">
+                            <input id="query" name="query" type="search"class="form-control rounded"aria-describedby="search-addon" placeholder="Search.." aria-label="Search"style="background-color:white;height:65px;width:150px;border-color:black;" />
+                          
+                            <button type="submit" style="font-size: xx-large;width:60px;height:64px; " class="btn "><i class="fa fa-search"></i></button>
+                        </div>
+                        
 
-                    <input type="text" placeholder="Search.." style="background-color:white;height:65px;width:400px;">
-
+                    </form>
 
                     &nbsp;
                     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">

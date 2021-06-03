@@ -21,13 +21,22 @@ namespace WebApplication.Controllers
             _context = context;
         }
 
+       
+      
+       
         // GET: Recipes
-        //public async Task<IActionResult> Index()
-        //{
-        //    var webApplicationContext = _context.Recipe.Include(r => r.Category);
-        //    return View(await webApplicationContext.ToListAsync());
-        //}
-
+        public async Task<IActionResult> Index(string query)
+        {
+           var webApplicationContext = _context.Recipe.Include(r => r.Category);
+           
+            if (!string.IsNullOrEmpty(query))
+            {
+                return View(_context.Recipe.Include(r => r.Category).Where(a => a.Name.Contains(query)));
+            }
+            return View(webApplicationContext);
+            
+        }
+       
         public async Task<IActionResult> Salty(int? id)
         {
             var webApplicationContext = _context.Recipe.Where(r => r.CategoryId == id);
@@ -230,6 +239,8 @@ namespace WebApplication.Controllers
             }
             return View(recipe);
         }
+
+
 
         // POST: Recipes/Delete/5
         [HttpPost, ActionName("Delete")]
