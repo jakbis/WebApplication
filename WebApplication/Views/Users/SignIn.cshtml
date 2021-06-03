@@ -10,10 +10,6 @@
     <link rel="stylesheet" href="~/css/signin_signup.css" />
 }
 
-
-<div class="control-label"> <a class="btn btn-light" style="font-size:20px;color:hotpink;display:flw" href="/home/index">Watch as a guest</a> </div>
-
-
 <div class="login-wrap">
     <div class="login-html">
         <form asp-action="SignIn">
@@ -30,12 +26,12 @@
             </div>
             &emsp;
             <div class="form-group">
-                <input type="submit" value="SignIn" class="btn btn-light" style="font-size:25px;color:hotpink;" />
+                <input type="submit" value="Sign In" class="btn btn-light" style="font-size:25px;color:hotpink;" />
             </div>
             &emsp;
             <div class="control-label">Not Registered? <a class="btn btn-light" style="font-size:20px;color:hotpink;" href="/Users/SignUp">Click Here </a> </div>
             &emsp;
-            <div class="control-label"> <a class="btn btn-light" style="font-size:15px;color:hotpink;" href="/Home/Index">Back to home page </a> </div>
+            <div class="control-label"> <a class="btn btn-light" style="font-size:15px;color:hotpink;" href="/Home/Index">Watch as a guest </a> </div>
             @if (ViewBag.Error != null)
             {
                 <div class="text-danger">@ViewBag.Error</div>

@@ -1,83 +1,78 @@
 ﻿
 @model IEnumerable<WebProject.Models.Category>
+@section styles{
+
+    <link rel="stylesheet" href="~/css/categories_index.css" />
+    <link rel="stylesheet" href="~/css/home_index_.css" />
+        <link rel="stylesheet" href="~/css/layout_home.css" />
+
+    }
+
 
 @{
     ViewData["Title"] = "Categories";
+
 }
 <body>
-    <h1 style="        text-align: center;
-        font-size: 50px;
-        text-decoration-line: underline;
-">
-        Categories
-    </h1>
+    @if (this.User.IsInRole("Admin"))
+    {
 
-    <p style="text-align:center">
-        <a asp-action="Create">New Category</a>
-    </p>
-    @*<table class="row">
-            <thead>
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Name)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.ImagePath)
-                        </th>
-                        <th></th>
-                    </tr>
-                </thead>
-        <thead>*@
-    <div class="container">
-        <div class="row ">
-            @foreach (var item in Model)
-            {
-                @*<div class="card col-2 d-flex text-center" style="width: 18rem;background-color:transparent;margin:15px;border:none;">
-                        <a asp-action="Delete" asp-route-id="@item.CategoryId" class="btn btn-into btn-danger card-header" style="color:mediumslateblue;border:solid;font-weight:bold;">Delete</a>
-                        <a class="card-header mx-auto" style="text-align:center;font-size:20px;font-weight:bold">@item.Name</a>
-                        <img class="card-img-top" src="@item.ImagePath" alt="Card image cap" style="float: left; width: 150px; height: 150px; background-size:cover;">
-                        <a type="button" class="mx-auto" asp-action="Details" asp-route-id="@item.CategoryId"><img src="@item.ImagePath" style="float: left; width: 200px; height: 200px; background-size:cover; border-radius: 50%;" alt="Avatar"></a>
-                        <div class="col text-center">
-                            <a asp-action="Delete" asp-route-id="@item.CategoryId" class="btn btn-into" style="color:black;border:solid;font-weight:bold">Delete</a>
+        <a class='btn btn-outline-light' style="background-color: #ac8d99;font-size:large;" asp-action="Create"> ליצירת קטגוריה חדש</a>
+    }
+        @*
+            <div class='our-work text-center'>
+                <div class='container row'>
+                    @foreach (var item in Model)
+                    {
+
+                        <div class="items-box">
+                            <div class="items">
+                                @if (this.User.IsInRole("Admin"))
+                                {
+                                    <a asp-action="Delete" asp-route-id="@item.CategoryId" class=" items-box items" style="border:solid;font-weight:bold;">Delete</a>
+                                }
+                                <h4 class="upper">@item.Name</h4>
+
+                                <button class="upper" asp-action="Details" asp-route-id="@item.CategoryId"><img src="@item.ImagePath" ></button>
+
+                            </div>
                         </div>
-                    </div>*@
-                <div class="card text-center" style="width: 18rem;background-color:transparent;margin:15px;border:none;">
-                    <div class="card-body">
-                        @if (this.User.IsInRole("Admin"))
-                        {
-                            <a asp-action="Delete" asp-route-id="@item.CategoryId" class="btn btn-into btn-danger card-title card-header" style="color:black;border:solid;font-weight:bold;">Delete</a>
-                        }
-                        <h5 class="card-title" style="text-align:center;font-size:20px;font-weight:bold">@item.Name</h5>
-                        @*<h5 class="card-title">Special title treatment</h5>*@
-                        @*<img class="card-img-top" src="@item.ImagePath" alt="Card image cap" style="float: left; width: 150px; height: 150px; background-size:cover;">*@
-                        <a type="button" class="mx-auto" asp-action="Details" asp-route-id="@item.CategoryId"><img src="@item.ImagePath" style="float: left; width: 200px; height: 200px; background-size:cover; border-radius: 50%;" alt="Avatar"></a>
-                        @*<div class="col text-center">
-            **Need to FIX asp-action to Recipes/Index
-            <a asp-action="Delete" asp-route-id="@item.CategoryId" class="btn btn-into" style="color:black;border:solid;font-weight:bold">Delete</a>
-        </div>*@
-                    </div>
+                    }
                 </div>
-            }
-        </div>
-    </div>
-    @*</thead>
-        <tbody>*@
-    @*@foreach (var item in Model) {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ImagePath)
-                            </td>
-                            <td>
-                                <a asp-action="Edit" asp-route-id="@item.CategoryId">Edit</a> |
-                                <a asp-action="Details" asp-route-id="@item.CategoryId">Details</a> |
-                                <a asp-action="Delete" asp-route-id="@item.CategoryId">Delete</a>
+            </div>*@
 
-                            </td>
-                        </tr>
-                }
-        </tbody>
-        </table>*@
-</body>
+        <div class='our-work text-center'>
+            <div class='container'>
+                <h2 class='upper'>המתכונים <span class='main-color'>שלנו</span></h2>
+                &nbsp;
+                &nbsp;
+                <div class='items-box'>
+                    @foreach (var item in Model)
+                    {
+                        <div class='item'>
+                            <img src='@item.ImagePath' alt='Work 4'>
+                            <div class='over text-center'>
+                                &nbsp;
+                                <h9 class='text-center'>@item.Name</h9>
+                                &nbsp;
+                                &nbsp;
+                                &nbsp;
+                                <div class='buttons'>
+                                    <p>
+                                        <a class='btn btn-outline-light' style="background-color: #ac8d99;font-size:x-large;" asp-action="Details" asp-route-id="@item.CategoryId">לצפייה במתכונים</a>
+                                    </p>
+                                    @if (this.User.IsInRole("Admin"))
+                                    {
+                                        <p>
+                                            <a class='btn btn-outline-light' style="background-color: #ac8d99;font-size:x-large;" asp-action="Delete" asp-route-id="@item.CategoryId">מחק מתכון</a>
+                                        </p>
+                                    }
+                                    </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </body>

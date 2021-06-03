@@ -20,13 +20,9 @@ namespace WebApplication.Controllers
         {
             _context = context;
         }
-        [Authorize]
+        
         // GET: CreditCards
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.CreditCard.ToListAsync());
-        }
-        [Authorize]
+        
         // GET: CreditCards/Details/5
         public async Task<IActionResult> Details(string id)
         {
@@ -44,42 +40,45 @@ namespace WebApplication.Controllers
 
             return View(creditCard);
         }
-        [Authorize]
+        
         // GET: CreditCards/Create
         public IActionResult Create()
         {
             return View();
         }
 
+        
+
         // POST: CreditCards/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("NumberCard,name,date,csv")] CreditCard creditCard)
-        {
+        public async Task<IActionResult> Create([Bind("NumberCard,name,Date,Csv,UserName")] CreditCard creditCard)
+       {
             if (ModelState.IsValid)
             {
-                _context.Add(creditCard);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var q = _context.CreditCard.FirstOrDefault(u => u.UserName == creditCard.UserName);
+                
+                if (q == null)
+                {
+                    _context.Add(creditCard);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index), "Home");
+                } else ViewData["Error"] = "You've already paid ! ";
             }
             return View(creditCard);
         }
 
         // GET: CreditCards/Edit/5
-        public async Task<IActionResult> Edit(string id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (HttpContext.Session.GetString("username") == null)
             {
                 return RedirectToAction("SignIn", "Users");
             }
-            if (id == null)
-            {
-                return NotFound();
-            }
 
-            var creditCard = await _context.CreditCard.FindAsync(id);
+            var creditCard = await _context.CreditCard.FirstOrDefaultAsync(m => m.UserName == HttpContext.Session.GetString("username"));
             if (creditCard == null)
             {
                 return NotFound();
@@ -93,17 +92,18 @@ namespace WebApplication.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("NumberCard")] CreditCard creditCard)
+        public async Task<IActionResult> Edit(string id, [Bind("NumberCard,name,Date,Csv,UserName")] CreditCard creditCard)
         {
-            if (HttpContext.Session.GetString("username") == null)
+            if (HttpContext.Session.GetString("username") == null && HttpContext.Session.IsAvailable)
             {
                 return RedirectToAction("SignIn", "Users");
             }
-            if (id != creditCard.NumberCard)
-            {
-                return NotFound();
-            }
+            //if (id != creditCard.NumberCard)
+            //{
+            //    return NotFound();
+            //}
 
+            creditCard.UserName = HttpContext.Session.GetString("username");
             if (ModelState.IsValid)
             {
                 try
@@ -122,7 +122,7 @@ namespace WebApplication.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index","Home");
             }
             return View(creditCard);
         }
@@ -159,7 +159,7 @@ namespace WebApplication.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
+       
         private bool CreditCardExists(string id)
         {
             return _context.CreditCard.Any(e => e.NumberCard == id);
