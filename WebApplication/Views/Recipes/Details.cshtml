@@ -4,40 +4,46 @@
     ViewData["Title"] = "Details";
 }
 
+@if (this.User.IsInRole("Admin"))
+{
+    <main>
+        <dd class="col-sm-10">
+            <h3>@Html.DisplayFor(model => model.Name)</h3>
+        </dd>
 
-<main>
-    <dd class="col-sm-10">
-        <h3>@Html.DisplayFor(model => model.Name)</h3>
-    </dd>
-
-    <div class="position-relative overflow-hidden p-4 p-md-4 m-md-4 text-center badge-light" style="background-color:transparent">
-        <div class="col-md-2p-lg-2mx-auto my-2">
-            <iframe style="background-color: #FFFFFF" src="@Html.DisplayFor(model => model.Video)?autoplay=1&mute=0" width="1000" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <div class="position-relative overflow-hidden p-4 p-md-4 m-md-4 text-center badge-light" style="background-color:transparent">
+            <div class="col-md-2p-lg-2mx-auto my-2">
+                <iframe style="background-color: #FFFFFF" src="@Html.DisplayFor(model => model.Video)?autoplay=1&mute=0" width="1000" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </div>
+            <div class="product-device shadow-sm d-none d-md-block"></div>
+            <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
         </div>
-        <div class="product-device shadow-sm d-none d-md-block"></div>
-        <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
-    </div>
-    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-        <div class="col-md-5 p-lg-5 mx-auto my-5">
-            <h1 class="display-4 fw-normal">הוראות הכנה</h1>
-            <p class="lead fw-normal">
-                <dd class="col-sm-10">
-                    @Html.DisplayFor(model => model.Howtomake)
-                </dd>
-            </p>
-            <a class="btn btn-outline-secondary" asp-action="CreateOrder" asp-route-id="@Model.RecipeId">Add to my cart</a>
+        <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+            <div class="col-md-5 p-lg-5 mx-auto my-5">
+                <h1 class="display-4 fw-normal">הוראות הכנה</h1>
+                <p class="lead fw-normal">
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Howtomake)
+                    </dd>
+                </p>
+                <a class="btn btn-outline-secondary" asp-action="CreateOrder" asp-route-id="@Model.RecipeId">Add to my cart</a>
+            </div>
+            <div class="product-device shadow-sm d-none d-md-block"></div>
+            <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
         </div>
-        <div class="product-device shadow-sm d-none d-md-block"></div>
-        <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+    </main>
+
+    <div>
+        @if (Model.Author == User.Identity.Name)
+        {
+            <a class="btn btn-danger" asp-action="Edit" asp-route-id="@Model.RecipeId">Edit</a>
+        }
+        <a class="btn btn-primary" onclick="history.go(-1)">Back to List</a>
     </div>
-</main>
 
-<div>
-    @if (Model.Author == User.Identity.Name)
-    {
-        <a class="btn btn-danger" asp-action="Edit" asp-route-id="@Model.RecipeId">Edit</a> 
-    }
-<a class="btn btn-primary" onclick="history.go(-1)">Back to List</a>
-</div>
-
-
+}
+else
+{
+    <div class="control-label" style="text-align:center;line-height:29;-webkit-text-stroke: medium;font-family: monospace;">You've to Sign in <a class="btn btn-light" style="font-size:20px;color:hotpink;" href="/Users/SignIn">Click Here</a> </div>
+    
+}

@@ -12,12 +12,20 @@ namespace WebProject.Models
     public class CreditCard
     {
         [Key]
+        [DataType(DataType.CreditCard)]
         public string NumberCard { get; set; }
 
         public string name { get; set; }
-        private int Date { get; set; }
-        private int Csv { get; set; }
-        [Key, ForeignKey("NumberOrder"), Column(Order = 1)]//השלים ולבדוק
+        public int Date { get; set; }
+        public int Csv { get; set; }
+
+        public string Kind { get; set; } = "Visa";
+
+        [Key, ForeignKey("NumberOrder"), Column(Order = 1)]
         public Orders OrderId { get; set; }
+
+        public string UserName { get; set; }
+
+
     }
 }
