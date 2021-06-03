@@ -61,10 +61,13 @@
                                     <p>
                                         <a class='btn btn-outline-light' style="background-color: #ac8d99;font-size:x-large;" asp-action="Details" asp-route-id="@item.CategoryId">לצפייה במתכונים</a>
                                     </p>
-                                    <p>
-                                        <a class='btn btn-outline-light' style="background-color: #ac8d99;font-size:x-large;" asp-action="Delete" asp-route-id="@item.CategoryId">מחק מתכון</a>
-                                    </p>
-                                </div>
+                                    @if (this.User.IsInRole("Admin"))
+                                    {
+                                        <p>
+                                            <a class='btn btn-outline-light' style="background-color: #ac8d99;font-size:x-large;" asp-action="Delete" asp-route-id="@item.CategoryId">מחק מתכון</a>
+                                        </p>
+                                    }
+                                    </div>
                             </div>
                         </div>
                     }
