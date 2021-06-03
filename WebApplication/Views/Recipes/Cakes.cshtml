@@ -19,11 +19,17 @@
         color: palevioletred;
     }
 ">Our Spaciel Cakes !</h1>
-@if (this.User.IsInRole("Client") || this.User.IsInRole("Admin"))
+@if (this.User.IsInRole("Admin"))
 {
-    <p style="text-align:center">
-        <a asp-action="Create">Create New</a>
-    </p>
+<p style="text-align:center">
+    <div class="control-label" style="text-align: center;"> <a class="btn btn-light" style="
+        background-color: mediumpurple;
+        color: antiquewhite;
+        font-variant: all-small-caps;
+        font-size: 19px;
+        font-weight: bold;
+" asp-action="Create">Create New </a> </div>
+</p>
 }
 <div class='our-work text-center'>
     <div class="container" >
