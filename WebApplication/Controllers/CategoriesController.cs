@@ -25,10 +25,6 @@ namespace WebApplication.Controllers
         public async Task<IActionResult> Index()
         {
             
-            if (HttpContext.Session.GetString("username") == null)
-            {
-                return RedirectToAction("SignIn", "Users");
-            }
             return View(await _context.Category.ToListAsync());
         }
 

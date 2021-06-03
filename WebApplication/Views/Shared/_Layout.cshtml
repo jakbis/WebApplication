@@ -64,7 +64,7 @@
                     @*<a class="navbar-toggler-icon" asp-area="" asp-controller="Users" asp-action="SignOut">התנתק</a>*@
                     @if (Context.User != null && Context.User.Claims != null && Context.User.Claims.Count() > 0)
                     {
-                        <a class="btn" asp-area="" asp-controller="Users" asp-action="SignOut" style=" font-size: xx-large;">התנתק</a>
+                        <a class="btn" asp-area="" asp-controller="Users" asp-action="LogOut" style=" font-size: xx-large;">התנתק</a>
                     }
                     else
                     {
@@ -84,8 +84,8 @@
 
 
 <!-- שורת שליטה למטה -->
-<footer class="footer text-center" style="background-color: white">
-    <section class="footer">
+<footer class="footer text-center" style="background-color: white;position:absolute !important">
+    
         <div class="footer text-center " style="text-indent:0.1px;">
             <div class="footer row " style="line-height:5px">
                 <div class="col-md-3 col-lg-5 col-md-3 mx-lg-4 mb-2">
@@ -131,7 +131,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    
 </footer>
 
 
