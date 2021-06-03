@@ -39,7 +39,7 @@ namespace WebApplication.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> SignUp([Bind("UserId,Username,Password,Email,RepeatPassword")] Users users)
+        public async Task<IActionResult> SignUp([Bind("UserId,Username,Password,Email,RepeatPassword,CreditCard")] Users users)
         {
             if (ModelState.IsValid)
             {
@@ -56,7 +56,7 @@ namespace WebApplication.Controllers
                         var u = _context.Users.FirstOrDefault(u => u.Username == users.Username && u.Password == users.Password);
 
                         Signin(u);
-                        return RedirectToAction(nameof(Index), "Home");
+                        return RedirectToAction("Create", "CreditCards");
 
                     }
                     else ViewData["Error"] = "Password Invalid";
@@ -81,8 +81,14 @@ namespace WebApplication.Controllers
                     HttpContext.Session.SetString("username", q.Username);
 
                     Signin(q);
-
-                    return RedirectToAction(nameof(Index), "Home");
+                    if (Paid(users) == true)
+                    {
+                        return RedirectToAction(nameof(Index), "Home");
+                    }
+                    else
+                    {
+                        return RedirectToAction("Create", "CreditCards");
+                    }
                 }
                 else
                     ViewData["Error"] = "Unable to Login, try another user name or password";
@@ -105,10 +111,24 @@ namespace WebApplication.Controllers
 
         public async Task<IActionResult> LogOut()
         {
-            
+            HttpContext.Session.Clear();
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            
             return RedirectToAction("SignIn");
         }
+
+        public Boolean Paid(Users users)
+        {
+            var q = _context.CreditCard.FirstOrDefault(u => u.UserName == users.Username);
+            
+            if (q == null)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
     }
             
 }

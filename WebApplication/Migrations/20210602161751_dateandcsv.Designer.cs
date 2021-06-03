@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApplication.Data;
 
 namespace WebApplication.Migrations
 {
     [DbContext(typeof(WebApplicationContext))]
-    partial class WebApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20210602161751_dateandcsv")]
+    partial class dateandcsv
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -55,6 +57,9 @@ namespace WebApplication.Migrations
                     b.Property<int?>("NumberOrder")
                         .HasColumnType("int");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.Property<string>("UserName")
                         .HasColumnType("nvarchar(max)");
 
@@ -64,6 +69,9 @@ namespace WebApplication.Migrations
                     b.HasKey("NumberCard");
 
                     b.HasIndex("NumberOrder");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
 
                     b.ToTable("CreditCard");
                 });
@@ -189,9 +197,6 @@ namespace WebApplication.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("CreditCardNumberCard")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -212,8 +217,6 @@ namespace WebApplication.Migrations
 
                     b.HasKey("UserId");
 
-                    b.HasIndex("CreditCardNumberCard");
-
                     b.ToTable("Users");
                 });
 
@@ -223,7 +226,15 @@ namespace WebApplication.Migrations
                         .WithMany()
                         .HasForeignKey("NumberOrder");
 
+                    b.HasOne("WebProject.Models.Users", "User")
+                        .WithOne("CreditCard")
+                        .HasForeignKey("WebProject.Models.CreditCard", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("OrderId");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("WebProject.Models.OrderDetails", b =>
@@ -263,15 +274,6 @@ namespace WebApplication.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("WebProject.Models.Users", b =>
-                {
-                    b.HasOne("WebProject.Models.CreditCard", "CreditCard")
-                        .WithMany()
-                        .HasForeignKey("CreditCardNumberCard");
-
-                    b.Navigation("CreditCard");
-                });
-
             modelBuilder.Entity("WebProject.Models.Category", b =>
                 {
                     b.Navigation("Recipes");
@@ -289,6 +291,8 @@ namespace WebApplication.Migrations
 
             modelBuilder.Entity("WebProject.Models.Users", b =>
                 {
+                    b.Navigation("CreditCard");
+
                     b.Navigation("Orders");
                 });
 #pragma warning restore 612, 618

@@ -55,14 +55,14 @@
                     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
                     <button type="button" style="font-size: xx-large;background-color: transparent;height:65px;width:300px;"
                             class="shopping-cart-button float-right">
-                        <i class="fa fa-shopping-cart"></i>
-                        <a href="/OrderDetails/Create">
-                            <span class="text" style=" font-size: xx-large;">לעגלת הקניות</span>
+                        <img class="image ml-1" src="https://i.imgur.com/WIAP9Ku.jpg" style="width: 62px;"/>
+                        <a href="/CreditCards/Edit">
+                            <span class="text" style=" font-size: xx-large;">אמצעי תשלום</span>
                         </a>
 
                     </button>
                     @*<a class="navbar-toggler-icon" asp-area="" asp-controller="Users" asp-action="SignOut">התנתק</a>*@
-                    @if (Context.User != null && Context.User.Claims != null && Context.User.Claims.Count() > 0)
+                    @if (Context.User != null && Context.User.Claims != null && Context.User.Claims.Count() > 0 )
                     {
                         <a class="btn" asp-area="" asp-controller="Users" asp-action="LogOut" style=" font-size: xx-large;">התנתק</a>
                     }

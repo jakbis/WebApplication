@@ -34,6 +34,8 @@ namespace WebProject.Models
         
         public List<Orders> Orders { get; set; }
 
+        public CreditCard CreditCard { get; set; }
+
         public UserType Type { get; set; } = UserType.Client;
 
     }
