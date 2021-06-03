@@ -4,6 +4,16 @@
     <link rel="stylesheet" href="~/css/layout_home.css" />
 
 }
+<head>
+    <script language="JavaScript" type="text/javascript">
+
+        function MessageBox(Message) {
+            alert(Message);
+        }
+    </script>
+</head>
+<body>
+
 <div class='header'>
     <div class='overlay'>
         <div class='container table'>
@@ -46,22 +56,22 @@
         <div class='box'>
             <i class='fa fa-youtube-play fa-3x'></i>
             <h3>סרטוני הדרכה</h3>
-            <p>.תוכלו להינות ממגוון סרטוני הדרכה מפורטים לצורך ביצוע המתכון על הצד הטוב ביותר</p>
+            <p>תוכלו להינות ממגוון סרטוני הדרכה מפורטים לצורך ביצוע המתכון על הצד הטוב ביותר</p>
         </div>
         <div class='box'>
             <i class='fa fa-credit-card fa-3x'></i>
             <h3>ממשק מאובטח</h3>
-            <p>.תוכלו להירשם לאתר שלנו ולהינות מהמתכונים המגוונים בתשלום מאובטח</p>
+            <p>תוכלו להירשם לאתר שלנו ולהינות מהמתכונים המגוונים בתשלום מאובטח</p>
         </div>
         <div class='box'>
             <i class='fa fa-ils fa-3x'></i>
             <h3>מחיר משתלם</h3>
-            <p>.תוכלו להינות ממחיר משתלם לרכישת מגוון המתכונים ומהשירות הטוב ביותר בתחום</p>
+            <p>תוכלו להינות ממחיר משתלם לרכישת מגוון המתכונים ומהשירות הטוב ביותר בתחום</p>
         </div>
         <div class='box'>
             <i class='fa fa-mobile fa-3x'></i>
             <h3>טיפים</h3>
-            <p>.תוכלו ליצור קשר עם קונדיטור מוסמך אשר יתן הכוונה בביצוע המתכון וטיפים לתוצאה הטעימה ביותר</p>
+            <p>תוכלו ליצור קשר עם קונדיטור מוסמך אשר יתן הכוונה בביצוע המתכון וטיפים לתוצאה הטעימה ביותר</p>
         </div>
     </div>
 </div>
@@ -84,7 +94,9 @@
                         עוגת גבינה משובחת<br>
                         .על בסיס ביסקוויטים וקרם מסקרפונה
                     </p>
-                    <button class='upper'>לצפייה במתכון</button>
+                    <button class='upper' onclick="MessageBox('לצפייה במתכון עליך להירשם כ-משתמש פרימיום')">לצפייה במתכון</button>
+
+
                 </div>
             </div>
             <div class='item'>
@@ -95,7 +107,7 @@
                         עוגיות שוקולד צ'יפס <br>
                         .עשויות מבצק פריך במילוי פצפוצי שוקולד חלב
                     </p>
-                    <button class='upper'>לצפייה במתכון</button>
+                    <button class='upper' onclick="MessageBox('לצפייה במתכון עליך להירשם כ-משתמש פרימיום')">לצפייה במתכון</button>
                 </div>
             </div>
             <div class='item'>
@@ -103,99 +115,112 @@
                 <div class='over text-center'>
                     <h4 class='upper'>עוגת שמרים</h4>
                     <p>
-                       עוגה מבצק שמרים <br>
+                        עוגה מבצק שמרים <br>
                         .ממולאת במגוון ששוקולדים עשירים
                     </p>
-                    <button class='upper'>לצפייה במתכון</button>
+                    <button class='upper' onclick="MessageBox('לצפייה במתכון עליך להירשם כ-משתמש פרימיום')">לצפייה במתכון</button>
                 </div>
             </div>
 
-</div>
+        </div>
 
-<!-- End Our Work -->
-<!-- Start Testimonials -->
+        <!-- End Our Work -->
+        <!-- Start Testimonials -->
 
-<div class='our-team text-center'>
-    <div class='container'>
-        <h2 class='upper'>הצוות <span class='main-color'>שלנו</span></h2>
-        <p class='main'>
-            הכירו את הצוות שלנו-מאי ,יקיר ,עידן וליאור<br>
-             .אשר עובדים שעות ארוכות מסביב לשעון כדי לספק לכם את המתכונים השווים ביותר
-        </p>
-        <div class='the-team'>
-            <div class='person'>
-                <img src="https://i.ibb.co/sP8c4gf/image.jpg" alt="image" >
-                <h3 class='upper'>עידן טלמור</h3>
-                <div class='social-icons'>
-                    <i class='fa fa-facebook fa-lg'></i>
-                    <i class='fa fa-twitter fa-lg'></i>
-                    <i class='fa fa-instagram fa-lg'></i>
-                </div>
-                <p>
-                    .אחראי על  מתכוני האתר ,  שיווק ופרסום ברשתות החברתיות
+        <div class='our-team text-center'>
+            <div class='container'>
+                <h2 class='upper'>הצוות <span class='main-color'>שלנו</span></h2>
+                <p class='main'>
+                    הכירו את הצוות שלנו-מאי ,יקיר ,עידן וליאור<br>
+                    .אשר עובדים שעות ארוכות מסביב לשעון כדי לספק לכם את המתכונים השווים ביותר
                 </p>
-            </div>
-            <div class='person'>
-                <img src="https://i.ibb.co/VL8XryM/image.png" alt="image" >
-                <h3 class='upper'>יקיר בן ישי</h3>
-                <div class='social-icons'>
-                    <i class='fa fa-facebook fa-lg'></i>
-                    <i class='fa fa-twitter fa-lg'></i>
-                    <i class='fa fa-instagram fa-lg'></i>
+                <div class='the-team'>
+                    <div class='person'>
+                        <img src="https://i.ibb.co/sP8c4gf/image.jpg" alt="image">
+                        <h3 class='upper'>עידן טלמור</h3>
+                        <div class='social-icons'>
+                            <i class='fa fa-facebook fa-lg'></i>
+                            <i class='fa fa-linkedin fa-lg'></i>
+                            <i class='fa fa-instagram fa-lg'></i>
+                        </div>
+                        <p>
+                            אחראי על  מתכוני האתר ובנוסף על שיווק ופרסום ברשתות החברתיות
+                        </p>
+                    </div>
+                    <div class='person'>
+                        <img src="https://i.ibb.co/VL8XryM/image.png" alt="image">
+                        <h3 class='upper'>יקיר בן ישי</h3>
+                        <div class='social-icons'>
+                            <i class='fa fa-facebook fa-lg'></i>
+                            <i class='fa fa-linkedin fa-lg'></i>
+                            <i class='fa fa-instagram fa-lg'></i>
+                        </div>
+                        <p>
+                            אחראי על התכנות הפונקציונלי באתר ועל ממשק האתר והנגישות למשתמשים
+                        </p>
+                    </div>
+                    <div class='person'>
+                        <img src="https://i.ibb.co/DwZ5Z0v/image.jpg" alt="image">
+                        <h3 class='upper'>מאי זמיר</h3>
+                        <div class='social-icons'>
+                            <i class='fa fa-facebook fa-lg'></i>
+                            <i class='fa fa-linkedin fa-lg'></i>
+                            <i class='fa fa-instagram fa-lg'></i>
+                        </div>
+                        <p>
+                            אחראית על נראות האתר עיצוב הממשק והנראות הפרונטלית של האתר
+                        </p>
+                    </div>
+                    <div class='person'>
+                        <img src="https://i.ibb.co/rdP2VLp/khtur.jpg" alt="ליאור">
+                        <h3 class='upper'>ליאור תורג'מן</h3>
+                        <div class='social-icons'>
+                            <i class='fa fa-facebook fa-lg'></i>
+                            <i class='fa fa-linkedin fa-lg'></i>
+                            <i class='fa fa-instagram fa-lg'></i>
+                        </div>
+                        <p>
+                            אחראית על המתכונים ועל תחום הקונדיטוריה
+                        </p>
+                    </div>
+
+                    <h2 class='upper'>עקבו <span class='main-color'>אחרינו</span></h2>
+                    <iframe class="instagram-media instagram-media-rendered" id="instagram-embed-0" src="https://www.instagram.com/p/CPpxKdzDT4s/embed/?cr=1&amp;v=13&amp;wp=607&amp;rd=https%3A%2F%2Flocalhost%3A44312&amp;rp=%2F#%7B%22ci%22%3A0%2C%22os%22%3A4233.074999996461%2C%22ls%22%3A4092.769999988377%2C%22le%22%3A4093.9900000812486%7D" allowtransparency="true" allowfullscreen="true" frameborder="0" height="509" data-instgrm-payload-id="instagram-media-payload-0" scrolling="no" style="background: white; right: 250px; max-width: 540px; width: calc(100% - 2px); border-radius: 3px; border: 1px solid rgb(219, 219, 219); box-shadow: none; display: block; margin: 12px 250px 12px; min-width: 326px; padding: 0px;"></iframe>
+                    <script async src="//www.instagram.com/embed.js"></script>
+                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3D106668191635832%26id%3D100068779549006&show_text=true&width=500" width="500" height="424" style="border:none;overflow: inherit"  scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                 </div>
-                <p>
-                    .אחראי על התכנות הפונקציונלי באתר , ממשק האתר והנגישות למשתמשים
-                </p>
-            </div>
-            <div class='person'>
-                <img src="https://i.ibb.co/DwZ5Z0v/image.jpg" alt="image">
-                <h3 class='upper'>מאי זמיר</h3>
-                <div class='social-icons'>
-                    <i class='fa fa-facebook fa-lg'></i>
-                    <i class='fa fa-twitter fa-lg'></i>
-                    <i class='fa fa-instagram fa-lg'></i>
-                </div>
-                <p>
-                    .אחראית על נראות האתר , עיצוב הממשק והנראות הפרונטלית של האתר
-                </p>
-            </div>
-            <div class='person'>
-                <img src="https://i.ibb.co/rdP2VLp/khtur.jpg" alt="ליאור">
-                <h3 class='upper'>ליאור תורג'מן</h3>
-                <div class='social-icons'>
-                    <i class='fa fa-facebook fa-lg'></i>
-                    <i class='fa fa-twitter fa-lg'></i>
-                    <i class='fa fa-instagram fa-lg'></i>
-                </div>
-                <p>
-                   .אחראית על המתכונים ועל תחום הקונדיטוריה
-                </p>
             </div>
         </div>
-    </div>
-</div>
 
-<div class='contact text-center'>
-    <div class='overlay'>
-        <div class='container'>
-            <h2 class='upper'>?צריכים<span class='main-color'>עזרה</span></h2>
-            <p class='main'>
-                לשירותי תמיכה מצוות הקונדיטורים הכוללים<br>
-                ..הכוונה ייעוץ בתחום המתכונים , טיפים , הצעות ליעול ועוד
-            </p>
-            <form>
-                <input type='email' placeholder='Your Email'>
-                <input type='text' placeholder='Subject'>
-                <textarea placeholder='Message'></textarea>
-                <div class='info'>
-                    <button class='upper'>פנו אלינו</button>
-                    <span class='form-icons'>
-                        <i class='fa fa-facebook fa-lg'></i>
-                        <i class='fa fa-twitter fa-lg'></i>
-                        <i class='fa fa-instagram fa-lg'></i>
-                    </span>
+
+
+
+
+
+
+        <div class='contact text-center'>
+            <div class='overlay'>
+                <div class='container'>
+                    <h2 class='upper'>?צריכים<span class='main-color'>עזרה</span></h2>
+                    <p class='main'>
+                        לשירותי תמיכה מצוות הקונדיטורים הכוללים<br>
+                        ..הכוונה ייעוץ בתחום המתכונים , טיפים , הצעות ליעול ועוד
+                    </p>
+                    <form>
+                        <input type='email' placeholder='Your Email'>
+                        <input type='text' placeholder='Subject'>
+                        <textarea placeholder='Message'></textarea>
+                        <div class='info'>
+                            <button class='upper' onclick="MessageBox('ההודעה נשלחה בהצלחה,קונדיטור ייצור איתכם קשר בהקדם')">פנו אלינו</button>
+                            <span class='form-icons'>
+                                <i class='fa fa-facebook fa-lg'></i>
+
+                            </span>
+                        </div>
+                    </form>
+                    
                 </div>
-            </form>
+            </div>
         </div>
-    </div>
-</div>
+
+</body>
