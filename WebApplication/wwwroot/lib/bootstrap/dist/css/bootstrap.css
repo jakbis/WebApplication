@@ -5892,7 +5892,6 @@ a.close.disabled {
   border-top: 1px solid #dee2e6;
   border-bottom-right-radius: 0.3rem;
   border-bottom-left-radius: 0.3rem;
-  position:fixed;
 }
 
 .modal-footer > :not(:first-child) {
