@@ -35,11 +35,15 @@
                         </p>
                         &nbsp;
                         &nbsp;
-                        <div class='buttons'>
-                            <a href="/Users/SignIn" class='btn btn-outline-light' style="background-color: #ac8d99;font-size:xx-large;">Sign In</a>
-                            &nbsp;
-                            <a href="/Users/SignUp" class='btn btn-outline-light' style="background-color: #ac8d99;font-size:xx-large;">Sign Up</a>
-                        </div>
+                        @if (!(Context.User != null && Context.User.Claims != null && Context.User.Claims.Count() > 0))
+                        {
+                    <div class='buttons'>
+                        <a href="/Users/SignIn" class='btn btn-outline-light' style="background-color: #ac8d99;font-size:xx-large;">Sign In</a>
+                        &nbsp;
+                        <a href="/Users/SignUp" class='btn btn-outline-light' style="background-color: #ac8d99;font-size:xx-large;">Sign Up</a>
+                    </div>
+                        }
+                        
                     </div>
                 </div>
             </div>

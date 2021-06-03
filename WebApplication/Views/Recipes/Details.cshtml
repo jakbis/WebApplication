@@ -4,11 +4,16 @@
     ViewData["Title"] = "Details";
 }
 
-@if (this.User.IsInRole("Admin"))
+@if (this.User.IsInRole("Client"))
 {
     <main>
-        <dd class="col-sm-10">
-            <h3>@Html.DisplayFor(model => model.Name)</h3>
+        <dd class="col-sm-10" style="
+    text-align:center;
+    left: 97px;
+    -webkit-text-stroke: medium;
+    text-decoration: underline;
+    text-decoration-style: wavy;">
+            <h3 style="font-size:61px">@Html.DisplayFor(model => model.Name)</h3>
         </dd>
 
         <div class="position-relative overflow-hidden p-4 p-md-4 m-md-4 text-center badge-light" style="background-color:transparent">
@@ -26,7 +31,7 @@
                         @Html.DisplayFor(model => model.Howtomake)
                     </dd>
                 </p>
-                <a class="btn btn-outline-secondary" asp-action="CreateOrder" asp-route-id="@Model.RecipeId">Add to my cart</a>
+                @*<a class="btn btn-outline-secondary" asp-action="CreateOrder" asp-route-id="@Model.RecipeId">Add to my cart</a>*@
             </div>
             <div class="product-device shadow-sm d-none d-md-block"></div>
             <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
