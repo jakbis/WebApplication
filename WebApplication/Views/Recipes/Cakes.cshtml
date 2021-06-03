@@ -6,7 +6,7 @@
 }
 
 <h1 style="text-align:center">Cakes Section</h1>
-@if (this.User.IsInRole("Client"))
+@if (this.User.IsInRole("Client") || this.User.IsInRole("Admin"))
 {
     <p style="text-align:center">
         <a asp-action="Create">Create New</a>
