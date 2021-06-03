@@ -6,36 +6,39 @@
 }
 
 <h1 style="text-align:center">Cakes Section</h1>
-<p style="text-align:center">
-    <a asp-action="Create">Create New</a>
-</p>
-<div class="container">
-    <div class="row ">
-        @foreach (var item in Model)
-        {@*<div class="card col-2 d-flex text-center" style="width: 18rem;background-color:transparent;margin:15px;border:none;">
-                    <a asp-action="Delete" asp-route-id="@item.CategoryId" class="btn btn-into btn-danger card-header" style="color:mediumslateblue;border:solid;font-weight:bold;">Delete</a>
-                    <a class="card-header mx-auto" style="text-align:center;font-size:20px;font-weight:bold">@item.Name</a>
-                    <img class="card-img-top" src="@item.ImagePath" alt="Card image cap" style="float: left; width: 150px; height: 150px; background-size:cover;">
-                    <a type="button" class="mx-auto" asp-action="Details" asp-route-id="@item.CategoryId"><img src="@item.ImagePath" style="float: left; width: 200px; height: 200px; background-size:cover; border-radius: 50%;" alt="Avatar"></a>
-                    <div class="col text-center">
-                        <a asp-action="Delete" asp-route-id="@item.CategoryId" class="btn btn-into" style="color:black;border:solid;font-weight:bold">Delete</a>
-                    </div>
-                </div>*@
-        <div class="card text-center" style="width: 18rem;background-color:transparent;margin:15px;border:none;">
-            <div class="card-body">
-                @if (this.User.IsInRole("Admin"))
-                {
-                    <a asp-action="Delete" asp-route-id="@item.RecipeId" class="btn btn-into btn-danger card-title card-header" style="color:black;border:solid;font-weight:bold;">Delete</a>
-                }
-                <h5 class="card-title" style="text-align:center;font-size:20px;font-weight:bold">@item.Name</h5>
-                @*<h5 class="card-title">Special title treatment</h5>*@
-                @*<img class="card-img-top" src="@item.ImagePath" alt="Card image cap" style="float: left; width: 150px; height: 150px; background-size:cover;">*@
-                <a type="button" class="mx-auto" asp-action="Details" asp-route-id="@item.RecipeId"><img src="@item.ImagePath" style="float: left; width: 200px; height: 200px; background-size:cover; border-radius: 50%;" alt="Avatar"></a>
-                @*<div class="col text-center">
-            **Need to FIX asp-action to Recipes/Index
-            <a asp-action="Delete" asp-route-id="@item.CategoryId" class="btn btn-into" style="color:black;border:solid;font-weight:bold">Delete</a>
-        </div>*@
-            </div>
-        </div>}
+@if (this.User.IsInRole("Client"))
+{
+    <p style="text-align:center">
+        <a asp-action="Create">Create New</a>
+    </p>
+}
+    <div class="container">
+        <div class="row ">
+            @foreach (var item in Model)
+            {@*<div class="card col-2 d-flex text-center" style="width: 18rem;background-color:transparent;margin:15px;border:none;">
+                        <a asp-action="Delete" asp-route-id="@item.CategoryId" class="btn btn-into btn-danger card-header" style="color:mediumslateblue;border:solid;font-weight:bold;">Delete</a>
+                        <a class="card-header mx-auto" style="text-align:center;font-size:20px;font-weight:bold">@item.Name</a>
+                        <img class="card-img-top" src="@item.ImagePath" alt="Card image cap" style="float: left; width: 150px; height: 150px; background-size:cover;">
+                        <a type="button" class="mx-auto" asp-action="Details" asp-route-id="@item.CategoryId"><img src="@item.ImagePath" style="float: left; width: 200px; height: 200px; background-size:cover; border-radius: 50%;" alt="Avatar"></a>
+                        <div class="col text-center">
+                            <a asp-action="Delete" asp-route-id="@item.CategoryId" class="btn btn-into" style="color:black;border:solid;font-weight:bold">Delete</a>
+                        </div>
+                    </div>*@
+            <div class="card text-center" style="width: 18rem;background-color:transparent;margin:15px;border:none;">
+                <div class="card-body">
+                    @if (this.User.IsInRole("Admin"))
+                    {
+                        <a asp-action="Delete" asp-route-id="@item.RecipeId" class="btn btn-into btn-danger card-title card-header" style="color:black;border:solid;font-weight:bold;">Delete</a>
+                    }
+                    <h5 class="card-title" style="text-align:center;font-size:20px;font-weight:bold">@item.Name</h5>
+                    @*<h5 class="card-title">Special title treatment</h5>*@
+                    @*<img class="card-img-top" src="@item.ImagePath" alt="Card image cap" style="float: left; width: 150px; height: 150px; background-size:cover;">*@
+                    <a type="button" class="mx-auto" asp-action="Details" asp-route-id="@item.RecipeId"><img src="@item.ImagePath" style="float: left; width: 200px; height: 200px; background-size:cover; border-radius: 50%;" alt="Avatar"></a>
+                    @*<div class="col text-center">
+                            **Need to FIX asp-action to Recipes/Index
+                            <a asp-action="Delete" asp-route-id="@item.CategoryId" class="btn btn-into" style="color:black;border:solid;font-weight:bold">Delete</a>
+                        </div>*@
+                </div>
+            </div>}
+        </div>
     </div>
-</div>
