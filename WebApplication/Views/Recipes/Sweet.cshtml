@@ -17,50 +17,54 @@
         color: palevioletred;">
     Suger HIGH !
 </h1>
-@if ( this.User.IsInRole("Admin"))
-{
-<p style="text-align:center">
-    <div class="control-label" style="text-align: center;">
-        <a class="btn btn-light" style="
+<div class='control-label'style="text-align:center;">
+    <a href="/Categories/Index" class='btn btn-outline-light' style="background-color: #ac8d99;font-size:large;">חזרה לקטגוריות</a>
+    &nbsp;
+</div>
+    @if (this.User.IsInRole("Admin"))
+    {
+        <p style="text-align:center">
+            <div class="control-label" style="text-align: center;">
+                <a class="btn btn-light" style="
         background-color: mediumpurple;
         color: antiquewhite;
         font-variant: all-small-caps;
         font-size: 19px;
         font-weight: bold;
 " asp-action="Create">Create New </a>
-    </div>
-</p>
-}
-<div class='our-work text-center'>
-    <div class="container" >
-        <h2 class='upper'>המתכונים <span class='main-color'>שלנו</span></h2>
-        &nbsp;
-        &nbsp;
-        <div class='items-box'>
-            @foreach (var item in Model)
-            {
-                <div class='item'>
-                    <img src='@item.ImagePath' alt='Work 4'>
-                    <div class='over text-center'>
-                        &nbsp;
-                        <h9 class='text-center'>@item.Name</h9>
-                        &nbsp;
-                        &nbsp;
-                        &nbsp;
-                        <div class='buttons'>
-                            <p>
-                                <a class='btn btn-outline-light' style="background-color: #ac8d99;font-size:x-large;" asp-action="Details" asp-route-id="@item.RecipeId">לצפייה במתכון</a>
-                            </p>
-                            @if (this.User.IsInRole("Admin"))
-                            {
+            </div>
+        </p>
+    }
+    <div class='our-work text-center'>
+        <div class="container">
+            <h2 class='upper'>המתכונים <span class='main-color'>שלנו</span></h2>
+            &nbsp;
+            &nbsp;
+            <div class='items-box'>
+                @foreach (var item in Model)
+                {
+                    <div class='item'>
+                        <img src='@item.ImagePath' alt='Work 4'>
+                        <div class='over text-center'>
+                            &nbsp;
+                            <h9 class='text-center'>@item.Name</h9>
+                            &nbsp;
+                            &nbsp;
+                            &nbsp;
+                            <div class='buttons'>
                                 <p>
-                                    <a class='btn btn-outline-light' style="background-color: #ac8d99;font-size:x-large;" asp-action="Delete" asp-route-id="@item.RecipeId">מחק מתכון</a>
+                                    <a class='btn btn-outline-light' style="background-color: #ac8d99;font-size:x-large;" asp-action="Details" asp-route-id="@item.RecipeId">לצפייה במתכון</a>
                                 </p>
-                            }
+                                @if (this.User.IsInRole("Admin"))
+                                {
+                                    <p>
+                                        <a class='btn btn-outline-light' style="background-color: #ac8d99;font-size:x-large;" asp-action="Delete" asp-route-id="@item.RecipeId">מחק מתכון</a>
+                                    </p>
+                                }
+                            </div>
                         </div>
                     </div>
-                </div>
-            }
+                }
+            </div>
         </div>
     </div>
-</div>
