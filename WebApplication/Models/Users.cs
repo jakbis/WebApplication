@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using WebApplication.Models;
+
 namespace WebProject.Models
 {
 
@@ -37,6 +39,10 @@ namespace WebProject.Models
         public CreditCard CreditCard { get; set; }
 
         public UserType Type { get; set; } = UserType.Client;
+
+        public int BranchId { get; set; }
+
+        public List<Branches> Branches { get; set; }
 
     }
 }

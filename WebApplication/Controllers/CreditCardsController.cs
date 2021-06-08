@@ -44,7 +44,13 @@ namespace WebApplication.Controllers
         // GET: CreditCards/Create
         public IActionResult Create()
         {
-            return View();
+            var q = _context.CreditCard.FirstOrDefault(u => u.UserName == HttpContext.User.Identity.Name);
+
+            if (q == null)
+            {
+                return View();
+            }
+            else return RedirectToAction("AccessDenied", "Users");
         }
 
         

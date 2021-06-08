@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApplication.Data;
 
 namespace WebApplication.Migrations
 {
     [DbContext(typeof(WebApplicationContext))]
-    partial class WebApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20210608112111_branches")]
+    partial class branches
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -88,8 +90,8 @@ namespace WebApplication.Migrations
                     b.Property<int>("Csv")
                         .HasColumnType("int");
 
-                    b.Property<string>("Date")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Date")
+                        .HasColumnType("int");
 
                     b.Property<string>("Kind")
                         .HasColumnType("nvarchar(max)");
@@ -230,9 +232,6 @@ namespace WebApplication.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("BranchId")
-                        .HasColumnType("int");
 
                     b.Property<string>("CreditCardNumberCard")
                         .HasColumnType("nvarchar(450)");

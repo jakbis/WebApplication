@@ -16,7 +16,7 @@ namespace WebProject.Models
         public string NumberCard { get; set; }
 
         public string name { get; set; }
-        public int Date { get; set; }
+        public string Date { get; set; }
         public int Csv { get; set; }
 
         public string Kind { get; set; } = "Visa";

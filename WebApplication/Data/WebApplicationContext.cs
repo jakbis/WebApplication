@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using WebProject.Models;
+using WebApplication.Models;
 
 namespace WebApplication.Data
 {
@@ -25,5 +26,7 @@ namespace WebApplication.Data
         public DbSet<WebProject.Models.Users> Users { get; set; }
 
         public DbSet<WebProject.Models.Orders> Orders { get; set; }
+
+        public DbSet<WebApplication.Models.Branches> Branches { get; set; }
     }
 }

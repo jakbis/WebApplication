@@ -75,11 +75,15 @@
                     <input asp-for="Email" class="form-control">
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
-                
-                    <input type="submit" value="Sign Up" class="btn btn-light" style="font-size:25px;color:hotpink;" />
-                
+                <div class="form-group">
+                    <label asp-for="BranchId" class="control-label"></label>
+                    <select asp-for="BranchId" class="form-control" asp-items=@ViewBag.Branches></select>
+                    <span asp-validation-for="BranchId" class="text-danger"></span>
+                </div>
+                <input type="submit" value="Sign Up" class="btn btn-light" style="font-size:25px;color:hotpink;" />
+
                 <div class="control-label">Already registerd? <a class="btn btn-light" style="font-size:20px;color:hotpink;" asp-action="SignIn">Click Here </a> </div>
-           &emsp;
+                &emsp;
                 <div class="control-label"> <a class="btn btn-light" style="font-size:15px;color:hotpink;" href="/Home/Index">Watch as a guest </a> </div>
 
                 @if (ViewBag.Error != null)

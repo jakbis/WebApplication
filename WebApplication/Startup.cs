@@ -35,7 +35,10 @@ namespace WebApplication
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options => { 
                 options.LoginPath = "/Users/SignIn"; 
-                options.AccessDeniedPath = "/Users/AccessDenied"; });
+                options.AccessDeniedPath = "/Users/AccessDenied";
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(1);
+                
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

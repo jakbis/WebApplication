@@ -27,6 +27,7 @@ namespace WebApplication.Controllers
         // GET: Users/SignUp
         public IActionResult SignUp()
         {
+            ViewData["Branches"] = new SelectList(_context.Branches, "BranchId", "Name");
             return View();
         }
         //Get: Users/SignIn
@@ -39,13 +40,13 @@ namespace WebApplication.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> SignUp([Bind("UserId,Username,Password,Email,RepeatPassword,CreditCard")] Users users)
+        public async Task<IActionResult> SignUp([Bind("UserId,Username,Password,Email,RepeatPassword,CreditCard,Branches,BranchId")] Users users)
         {
             if (ModelState.IsValid)
             {
                 var q = _context.Users.FirstOrDefault(u => u.Username == users.Username);
                 var d = _context.Users.FirstOrDefault(u => u.Email == users.Email);
-                
+               
                 if (q == null && d == null)
                 {
                     if (users.Password == users.RepeatPassword)
@@ -71,7 +72,7 @@ namespace WebApplication.Controllers
         // POST: Users/SignIn
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult SignIn([Bind("Username,Password,Email, UserId")] Users users)
+        public IActionResult SignIn([Bind("Username,Password,Email, UserId,Branches,BranchId")] Users users)
         {
             if (ModelState.IsValid)
             {
@@ -102,6 +103,7 @@ namespace WebApplication.Controllers
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
             var authProperties = new AuthenticationProperties
             {//ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(10)}; }
+                
             };
             await HttpContext.SignInAsync(
                 CookieAuthenticationDefaults.AuthenticationScheme, 

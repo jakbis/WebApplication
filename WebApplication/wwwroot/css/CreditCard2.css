@@ -1,0 +1,25 @@
+﻿
+.image {
+    width: 60px;
+    height: 30px
+}
+
+
+.btn-red {
+    background-color: #EF5350;
+    color: #fff;
+    padding: 8px 25px;
+    border-radius: 50px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    border: 2px solid #fff
+}
+
+    .btn-red:hover {
+        box-shadow: 0 0 0 2px #EF5350
+    }
+
+    .btn-red:focus {
+        box-shadow: 0 0 0 2px #EF5350 !important
+    }
+
