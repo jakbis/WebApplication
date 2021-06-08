@@ -28,6 +28,10 @@ namespace WebProject.Models
 
         public string Author { get; set; }
 
+        public string Milky { get; set; }
+
+        public string Gluten { get; set; }
+
     }
     
 }

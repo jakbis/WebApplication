@@ -17,7 +17,7 @@
 <h4 style="text-align:center">מתכונים</h4>
 <hr />
 <div class="row" style="text-align:center">
-    <div class="col-md-4" style="direction:rtl;">
+    <div class="col-md-4" style="direction:ltr;">
         <form asp-action="Create" style="text-align:center">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -47,24 +47,36 @@
                 <label style="direction:rtl">מתכון</label>
             </div>
             <div class="form-group">
-                <textarea asp-for="Howtomake" dir="rtl" rows="5" style="font-family:Times New Roman;color:black;">Put your text here</textarea>
+                <textarea asp-for="Howtomake" dir="rtl" rows="30"cols="80" style="font-family:Times New Roman;color:black;">Put your text here</textarea>
                 <span asp-validation-for="Howtomake" class="text-danger"></span>
             </div>
             <div class="form-group">
-                @*<label asp-for="Howtomake" class="control-label">?מהו המתכון</label>*@
-                @*<input asp-for="Howtomake" type="text" size="50" class="form-control" placeholder="כתוב את המתכון בצורה מפורטת"></input>*@
-
-                <label asp-for="CategoryId" class="control-label">קטגוריה</label>
-                <select asp-for="CategoryId" class="form-control" asp-items=@ViewBag.CategoryId></select>
-                <span asp-validation-for="CategoryId" class="text-danger"></span>
-                <div class="form-group">
-                    <a class="btn btn-danger" onclick="history.go(-1)">Back to List</a>
-                    <input type="submit" value="Create" class="btn btn-primary" />
-                </div>
+                <select class="Milky" name="Milky">
+                    <option value="Yes">חלבי</option>
+                    <option value="No">פרווה</option>
+                </select>
+                <span asp-validation-for="Milky" class="text-danger"></span>
             </div>
-        </form>
+            <div class="form-group">
+                <select class="Gluten" name="Gluten">
+                    <option value="Yes">מכיל גלוטן</option>
+                    <option value="No">ללא גלוטן</option>
+                </select>
+                <span asp-validation-for="Gluten" class="text-danger"></span>
+            </div>
+                    <div class="form-group">
+                        <label asp-for="CategoryId" class="control-label">קטגוריה</label>
+                        <select asp-for="CategoryId" class="form-control" asp-items=@ViewBag.CategoryId></select>
+                        <span asp-validation-for="CategoryId" class="text-danger"></span>
+                        <div class="form-group">
+                            <a class="btn btn-danger" onclick="history.go(-1)">Back to List</a>
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </div>
+                    </div>
+</form>
     </div>
 </div>
+
 
 @*<input type="button" onclick="history.go(-1)" value="Return to list"/>*@
 
