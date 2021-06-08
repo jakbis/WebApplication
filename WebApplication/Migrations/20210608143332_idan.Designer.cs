@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApplication.Data;
 
 namespace WebApplication.Migrations
 {
     [DbContext(typeof(WebApplicationContext))]
-    partial class WebApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20210608143332_idan")]
+    partial class idan
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -190,8 +192,8 @@ namespace WebApplication.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Gluten")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("Gluten")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Howtomake")
                         .HasColumnType("nvarchar(max)");
@@ -199,8 +201,8 @@ namespace WebApplication.Migrations
                     b.Property<string>("ImagePath")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Milky")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("Milky")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .IsRequired()
