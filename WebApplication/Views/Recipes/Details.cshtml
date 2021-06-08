@@ -39,7 +39,7 @@
     </main>
 
     <div>
-        @if (Model.Author == User.Identity.Name)
+        @if (Model.Author == User.Identity.Name || User.IsInRole("Admin"))
         {
             <a class="btn btn-danger" asp-action="Edit" asp-route-id="@Model.RecipeId">Edit</a>
         }
