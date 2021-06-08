@@ -25,6 +25,15 @@
                     <dd class="col-lg-10" style="white-space: pre-line; font-family:Arial;text-align:center;">
                         @Html.DisplayFor(model => model.Howtomake)
                     </dd>
+                    <dd class="col-lg-10" style="white-space: pre-line; font-family:Arial;text-align:center;">
+                       מכיל גלוטן?
+                        <h3 style="font-size: 30px; font-weight: bold;background-color: rgb(172 141 153 / 70%);"> @Html.DisplayFor(model => model.Gluten)</h3>
+                    </dd>
+                    <dd class="col-lg-10" style="white-space: pre-line; font-family:Arial;text-align:center;">
+                       חלבי?
+                        <h3 style="font-size: 30px; font-weight: bold;background-color: rgb(172 141 153 / 70%);"> @Html.DisplayFor(model => model.Milky)</h3>
+                    </dd>
+
                 </p>
                 @*<a class="btn btn-outline-secondary" asp-action="CreateOrder" asp-route-id="@Model.RecipeId">Add to my cart</a>*@
             </div>
