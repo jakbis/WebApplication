@@ -36,7 +36,7 @@ namespace WebApplication
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options => { 
                 options.LoginPath = "/Users/SignIn"; 
                 options.AccessDeniedPath = "/Users/AccessDenied";
-                options.ExpireTimeSpan = TimeSpan.FromMinutes(1);
+               // options.ExpireTimeSpan = TimeSpan.FromMinutes(1);
                 
             });
         }
