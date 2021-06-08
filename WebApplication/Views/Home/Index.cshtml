@@ -100,8 +100,14 @@
                             עוגת גבינה משובחת<br>
                             .על בסיס ביסקוויטים וקרם מסקרפונה
                         </p>
-                        <button class='upper' onclick="MessageBox('לצפייה במתכון עליך להירשם כ-משתמש פרימיום')">לצפייה במתכון</button>
+                        @if (User.IsInRole("Client") || User.IsInRole("Admin"))
+                        {
+                        }
+                        else
+                        {
+                            <button class='upper' onclick="MessageBox('לצפייה במתכון עליך להירשם כ-משתמש פרימיום')">לצפייה</button>
 
+                        }
 
                     </div>
                 </div>
@@ -113,7 +119,14 @@
                             עוגיות שוקולד צ'יפס <br>
                             .עשויות מבצק פריך במילוי פצפוצי שוקולד חלב
                         </p>
-                        <button class='upper' onclick="MessageBox('לצפייה במתכון עליך להירשם כ-משתמש פרימיום')">לצפייה במתכון</button>
+                        @if (User.IsInRole("Client") || User.IsInRole("Admin"))
+                        {
+                        }
+                        else
+                        {
+                            <button class='upper' onclick="MessageBox('לצפייה במתכון עליך להירשם כ-משתמש פרימיום')">לצפייה</button>
+
+                        }
                     </div>
                 </div>
                 <div class='item'>
@@ -124,7 +137,14 @@
                             עוגה מבצק שמרים <br>
                             .ממולאת במגוון ששוקולדים עשירים
                         </p>
-                        <button class='upper' onclick="MessageBox('לצפייה במתכון עליך להירשם כ-משתמש פרימיום')">לצפייה במתכון</button>
+                        @if (User.IsInRole("Client") || User.IsInRole("Admin"))
+                        {
+                        }
+                        else
+                        {
+                            <button class='upper' onclick="MessageBox('לצפייה במתכון עליך להירשם כ-משתמש פרימיום')">לצפייה</button>
+
+                        }
                     </div>
                 </div>
 
