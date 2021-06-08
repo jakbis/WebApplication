@@ -20,8 +20,8 @@ namespace WebProject.Models
         public string ImagePath { get; set; }
 
         public string Body { get; set; }
-        
-        public int Price { get; set; }
+
+        public int Price { get; set; } = 1;
         [Required]
         public string Video { get; set; }
         public string Howtomake { get; set; }
