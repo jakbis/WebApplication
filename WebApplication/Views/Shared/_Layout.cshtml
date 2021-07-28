@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="~/css/layout_home.css" />
 </head>
 <body>
-
     <!-- שורת שליטה למעלה -->
     <nav class="navbar navbar-expand-lg navbar-light d-md-block" style="background-color:white;">
         <div class="container">
@@ -41,33 +40,37 @@
                         <div class="input-group rounded">
                             <input id="query" name="query" type="search" class="form-control rounded" aria-describedby="search-addon" placeholder="Search.." aria-label="Search" style="background-color:white;height:35px;width:150px;border-color:black;" />
 
-                            <button type="submit" style="font-size: xx-large;width:40px;height:44px; " class="btn "><i class="fa fa-search"style="display:block;"></i></button>
+                            <button type="submit" style="font-size: xx-large;width:40px;height:44px; " class="btn "><i class="fa fa-search" style="display:block;"></i></button>
                         </div>
 
 
                     </form>
 
                     &nbsp;
-                    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
-                    <a href="/CreditCards/Edit">
-                        <button type="button" style="font-size: medium;background-color: #ac8d99;" class="btn btn-outline-light">
-                            אמצעי תשלום
-                        </button>
-                    </a>
+                    @if (Context.User != null && Context.User.Claims != null && Context.User.Claims.Count() > 0)
+                    {
+                        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+                        <a href="/CreditCards/Edit">
+                            <button type="button" style="font-size: medium;background-color: #ac8d99;" class="btn btn-outline-light">
+                                אמצעי תשלום
+                            </button>
+                        </a>
+                    }
                     &nbsp;
 
 
-                    @*<a class="navbar-toggler-icon" asp-area="" asp-controller="Users" asp-action="SignOut">התנתק</a>*@
-                    @if (Context.User != null && Context.User.Claims != null && Context.User.Claims.Count() > 0)
-                    {
-                        <a class="btn" asp-area="" asp-controller="Users" asp-action="LogOut" style=" font-size: medium;">התנתק</a>
-                    }
-                    else
-                    {
-                        <a class="btn" asp-area="" asp-controller="Users" asp-action="SignIn" style=" font-size: medium;">התחבר</a>
-                    }
-
-</nav>
+                        @*<a class="navbar-toggler-icon" asp-area="" asp-controller="Users" asp-action="SignOut">התנתק</a>*@
+                        @if (Context.User != null && Context.User.Claims != null && Context.User.Claims.Count() > 0)
+                        {
+                            <a class="btn" asp-area="" asp-controller="Users" asp-action="LogOut" style=" font-size: medium;">התנתק</a>
+                        }
+                        else
+                        {
+                            <a class="btn" asp-area="" asp-controller="Users" asp-action="SignIn" style=" font-size: medium;">התחבר</a>
+                        }
+</div>
+        </div>
+    </nav>
 
     <!-- כאן יימצא גוף הדף -->
     <div class="container">
@@ -81,49 +84,53 @@
 
 <!-- שורת שליטה למטה -->
 
-            <footer class=" footer row " style="line-height:5px; position: absolute;">
-                <div class="col-md-3 col-lg-5 col-md-3 mx-lg-4 mb-2">
-                    <h6 class="text-uppercase fw-bold mb-4" style="font-size:40px;">
-                        <i class="fas fa-gem me-2"></i>Buy&Cook
-                    </h6>        
-                    <p class=email style="font-size: 20px;">
-                        <span>cookandbuyservice@cookandbuy.co.il</span>
-                    </p>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3384.844331944565!2d34.77671698488315!3d31.965119581224826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502b40824461e09%3A0xe0df0c49090fe29a!2z15TXqteW157Xldeo16ogMzYsINeo15DXqdeV158g15zXpteZ15XXnw!5e0!3m2!1siw!2sil!4v1622561158859!5m2!1siw!2sil" width="400" height="100" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-                <div class="col-lg-5 col-lg-5 col-xl-2 mx-auto mb-4">
-                    <h6 class="text-uppercase fw-bold mb-4" style="font-size:40px;font-style:inherit">
-                        קטגוריות
-                    </h6>
-                    <p>
+<footer class=" footer row " style="line-height:5px; position: absolute;">
+    <div class="col-md-3 col-lg-5 col-md-3 mx-lg-4 mb-2">
+        <h6 class="text-uppercase fw-bold mb-4" style="font-size:40px;">
+            <i class="fas fa-gem me-2"></i>Buy&Cook
+        </h6>
+        <p class=email style="font-size: 20px;">
+            <span>cookandbuyservice@cookandbuy.co.il</span>
+        </p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3384.844331944565!2d34.77671698488315!3d31.965119581224826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502b40824461e09%3A0xe0df0c49090fe29a!2z15TXqteW157Xldeo16ogMzYsINeo15DXqdeV158g15zXpteZ15XXnw!5e0!3m2!1siw!2sil!4v1622561158859!5m2!1siw!2sil" width="400" height="100" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    <div class="col-lg-5 col-lg-5 col-xl-2 mx-auto mb-4">
+        <h6 class="text-uppercase fw-bold mb-4" style="font-size:40px;font-style:inherit">
+            קטגוריות
+        </h6>
+        <p>
 
-                        <a href="/Recipes/Sweet/1" class="text-reset" style="font-size:20px">מאפים מתוקים</a>
-                    </p>
-                    <p>
-                        <a href="/Recipes/Salty/2" class="text-reset" style="font-size:20px">מאפים מלוחים</a>
-                    </p>
-                    <p>
-                        <a href="/Recipes/Cakes/4" class="text-reset" style="font-size:20px">עוגות</a>
-                    </p>
-                </div>
-                <div class="col-lg-5 col-lg-5 col-xl-4 mx-auto mb-4">
-                    <h6 class="text-uppercase fw-bold mb-4" style="font-size:40px;">
-                        תפריט האתר
-                    </h6>
-                    <p>
-                        <a href="/home/index" class="text-reset" style="font-size:20px">דף הבית</a>
-                    </p>
-                    <p>
-                        <a href="/Categories/Index" class="text-reset" style="font-size:20px"> קטגוריות</a>
-                    </p>
-                    <p>
-                        <a href="/home/privacy" class="text-reset" style="font-size:20px">צור קשר</a>
-                    </p>
-                </div>
-            </footer>
+            <a href="/Recipes/Sweet/1" class="text-reset" style="font-size:20px">מאפים מתוקים</a>
+        </p>
+        <p>
+            <a href="/Recipes/Salty/2" class="text-reset" style="font-size:20px">מאפים מלוחים</a>
+        </p>
+        <p>
+            <a href="/Recipes/Cakes/4" class="text-reset" style="font-size:20px">עוגות</a>
+        </p>
+    </div>
+    <div class="col-lg-5 col-lg-5 col-xl-4 mx-auto mb-4">
+        <h6 class="text-uppercase fw-bold mb-4" style="font-size:40px;">
+            תפריט האתר
+        </h6>
+        <p>
+            <a href="/home/index" class="text-reset" style="font-size:20px">דף הבית</a>
+        </p>
+        <p>
+            <a href="/Categories/Index" class="text-reset" style="font-size:20px"> קטגוריות</a>
+        </p>
+        <p>
+            <a href="/home/privacy" class="text-reset" style="font-size:20px">צור קשר</a>
+        </p>
+    </div>
+</footer>
 </html>
-
-
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@section Scripts{
+    <script src="~/js/site.js" type="text/javascript"></script>
+}
 
 
 

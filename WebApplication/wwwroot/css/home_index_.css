@@ -725,5 +725,9 @@ ul, ol {
     font-weight: bold;
 }
 
+#Dots h5 {
+    margin-top: 10rem;
+    padding: 20px;
+}
 
 /* End Footer */

@@ -7,7 +7,11 @@
         <link rel="stylesheet" href="~/css/layout_home.css" />
 
     }
-
+<head>
+    <script language="JavaScript" type="text/javascript"></script>
+    <script src='https://cdn.plot.ly/plotly-2.2.0.min.js'></script>
+    <script defer src="~/js/indexGraphs.js"></script>
+</head>
 
 @{
     ViewData["Title"] = "Categories";
@@ -45,10 +49,19 @@
                                             <a class='btn btn-outline-light' style="background-color: #ac8d99;font-size:x-large;" asp-action="Delete" asp-route-id="@item.CategoryId">מחק מתכון</a>
                                         </p>
                                     }
-                                    </div>
+                                </div>
                             </div>
                         </div>
                     }
+                    <div style="font-weight:bold">
+                        <section id="Dots">
+                            <h5 dir="rtl">הקטגוריות המבוקשות</h5>
+                            <p style="color:green"> מתוקים </p>
+                            <p style="color:blue"> מלוחים </p>
+                            <p style="color:orange"> מאפים </p>
+                            <div id="statistic"></div>
+                        </section>
+                    </div>
                 </div>
 
             </div>
