@@ -8,7 +8,7 @@
 
 <h4>Recipe</h4>
 <hr />
-<div class="row">
+<div class="row" style="place-content:center;">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -36,7 +36,7 @@
             </div>
             <div>
                 
-                <textarea asp-for="Howtomake" dir="rtl" rows="5" style="font-family:Times New Roman;color:black;">Put your text here</textarea>
+                <textarea asp-for="Howtomake" dir="rtl" rows="5" style="font-family:Times New Roman;color:black;width: 150%;">Put your text here</textarea>
                 <span asp-validation-for="Howtomake" class="text-danger"></span>
             </div>
             <div class="form-group">

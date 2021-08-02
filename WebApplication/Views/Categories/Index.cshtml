@@ -19,12 +19,6 @@
 
 }
 <body>
-    @if (this.User.IsInRole("Admin"))
-    {
-        <label style="font-weight: 800;">Admin Only :</label>
-        <a class='btn btn-outline-light' style="background-color: #5a5536;
-        font-size: large;" href="/Categories/Statistics"> סטטיסטיקות</a>
-    }
     <div class='our-work text-center'>
         <div class='container'>
             <h2 class='upper'>הקטגוריות <span class='main-color'>שלנו</span></h2>
@@ -55,6 +49,75 @@
                         </div>
                     </div>
                 }
+                <div id="chart_container">
+                    <canvas id="chart-0"></canvas>
+                </div>
+                <script>
+
+                repArray = @Json.Serialize(ViewBag.REP);
+                cats = @Json.Serialize(ViewBag.REP);
+
+
+                    /* data */
+                    var data = {
+                        labels: ['Sweet', 'Salty','Pastry'],
+                        datasets: [{
+                            label: 'Recipes Chart',
+                            data: repArray,
+                            /* global setting */
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    };
+
+                    var options = {
+                        legend: {
+                            display: true,
+                            fillStyle: "red",
+
+                            labels: {
+                                boxWidth: 0,
+                                fontSize: 24,
+                                fontColor: "black",
+                            }
+                        },
+                        scales: {
+                            xAxes: [{
+                                stacked: false,
+                                scaleLabel: {
+                                    display: true,
+
+                                },
+                            }],
+                            yAxes: [{
+                                stacked: true,
+                                scaleLabel: {
+                                    display: true,
+
+                                },
+                                ticks: {
+                                    suggestedMin: 0,
+                                    suggestedMax: 10
+                                }
+                            }]
+                        },
+                    };
+
+                    var chart = new Chart('chart-0', {
+                        type: 'bar',
+                        data: data,
+                        options: options
+                    });
+                </script>
             </div>
         </div>
         </div>

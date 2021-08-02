@@ -24,7 +24,19 @@ namespace WebApplication.Controllers
         // GET: Categories
         public async Task<IActionResult> Index()
         {
-            
+            var list = _context.Recipe;
+            List<int> itemRepartitions = new List<int>();
+            var categories = list.Select(x => x.CategoryId).Distinct();
+
+            foreach (var item in categories)
+            {
+                itemRepartitions.Add(list.Count(x => x.CategoryId == item));
+            }
+
+            var rep = itemRepartitions;
+            ViewBag.CATEGORIES = categories;
+            ViewBag.REP = itemRepartitions.ToList();
+
             return View(await _context.Category.ToListAsync());
         }
 
