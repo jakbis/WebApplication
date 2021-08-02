@@ -47,9 +47,10 @@
                     </form>
 
                     &nbsp;
+                    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
                     @if (Context.User != null && Context.User.Claims != null && Context.User.Claims.Count() > 0)
                     {
-                        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+                        
                         <a href="/CreditCards/Edit">
                             <button type="button" style="font-size: medium;background-color: #ac8d99;" class="btn btn-outline-light">
                                 אמצעי תשלום
@@ -84,7 +85,7 @@
 
 <!-- שורת שליטה למטה -->
 
-<footer class=" footer row " style="line-height:5px; position: absolute;">
+<footer class=" footer row " style="line-height:5px; position: absolute;bottom: -6%;">
     <div class="col-md-3 col-lg-5 col-md-3 mx-lg-4 mb-2">
         <h6 class="text-uppercase fw-bold mb-4" style="font-size:40px;">
             <i class="fas fa-gem me-2"></i>Buy&Cook

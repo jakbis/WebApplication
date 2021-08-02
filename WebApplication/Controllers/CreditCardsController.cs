@@ -79,11 +79,6 @@ namespace WebApplication.Controllers
         // GET: CreditCards/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (HttpContext.Session.GetString("username") == null)
-            {
-                return RedirectToAction("SignIn", "Users");
-            }
-
             var creditCard = await _context.CreditCard.FirstOrDefaultAsync(m => m.UserName == HttpContext.Session.GetString("username"));
             if (creditCard == null)
             {
