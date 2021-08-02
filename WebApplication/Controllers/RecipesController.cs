@@ -31,7 +31,7 @@ namespace WebApplication.Controllers
            
             if (!string.IsNullOrEmpty(query))
             {
-                return View(_context.Recipe.Include(r => r.Category).Where(a => a.Name.Contains(query)));
+                return View(_context.Recipe.Where(a => a.Name.Contains(query)));
             }
             return View(webApplicationContext);
             
