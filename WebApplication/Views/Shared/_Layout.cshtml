@@ -6,7 +6,9 @@
 <head>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link href="search-filter.css" rel="stylesheet">
     <link rel="stylesheet" href="~/css/layout_home.css" />
+    <link rel="stylesheet" href="~/css/search-filter.css" />
 </head>
 <body>
     <!-- שורת שליטה למעלה -->
@@ -21,38 +23,68 @@
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1" style="word-spacing:25px;">
                     <a href="/Home/Index">
-                        <button type="button" style="font-size: medium;background-color: #ac8d99;" class="btn btn-outline-light">דף הבית</button>
+                        <button type="button" class="btnregular btn-outline-light">דף הבית</button>
                     </a>
                     &nbsp;
                     <a href="/Categories/Index">
-                        <button type="button" style="font-size: medium;background-color: #ac8d99;" class="btn btn-outline-light">קטגוריות</button>
+                        <button type="button" class="btnregular btn-outline-light">קטגוריות</button>
                     </a>
                     &nbsp;
 
 
                     <a href="/Home/Privacy">
-                        <button type="button" style="font-size: medium;background-color: #ac8d99;" class="btn btn-outline-light">
+                        <button type="button"  class="btnregular btn-outline-light">
                             תקנון האתר
                         </button>
                     </a>
                     &nbsp;
                     <form asp-controller="Recipes" asp-action="Index">
-                        <div class="input-group rounded">
-                            <input id="query" name="query" type="search" class="form-control rounded" aria-describedby="search-addon" placeholder="Search.." aria-label="Search" style="background-color:white;height:35px;width:150px;border-color:black;" />
+                        @*   <div class="input-group rounded">
+                <input id="query" name="query" type="search" class="form-control rounded" aria-describedby="search-addon" placeholder="Search.." aria-label="Search" style="background-color:white;height:35px;width:150px;border-color:black;" />
 
-                            <button type="submit" style="font-size: xx-large;width:40px;height:44px; " class="btn "><i class="fa fa-search" style="display:block;"></i></button>
+                <button type="submit" style="font-size: xx-large;width:40px;height:44px; " class="btn "><i class="fa fa-search" style="display:block;"></i></button>
+            </div>
+                            <div class="container">
+                                <div class="row searchFilter">
+                                    <div class="col-sm-12">
+                                        <div class="input-group">
+                                            <input id="table_filter" type="text" class="form-control" aria-label="Text input with segmented button dropdown"required min="1">
+                                            <select class="choiceStyle" name="filter" id="filter" required>
+                                                <option value="All">הכל</option>
+                                                <option value="Nomilk">ללא חלב</option>
+                                                <option value="Nogloten">ללא גלוטן</option>
+                                            </select>
+                                            <button id="searchBtn" type="submit" class="btn btn-secondary btn-search"><span class="glyphicon glyphicon-search">&nbsp;</span> <span class="label-icon">חיפוש</span></button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>*@
+
+                        <div class="input-group">
+                            
+                                <input class="btn-search border-dark" type="text" id="table_filter" name="table_filter" required min="1">
+                            
+                            &nbsp;
+                            <select class="choiceStyle" name="filter" id="filter" required>
+                                <option value="All">הכל</option>
+                                <option value="Nomilk">ללא חלב</option>
+                                <option value="Nogluten">ללא גלוטן</option>
+                            </select>
+                            &nbsp;
+                            <button type="submit" value="Search" class="btnregular btn-outline-light">
+                                Search
+                            </button>
+
                         </div>
-
-
                     </form>
-
                     &nbsp;
                     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
                     @if (Context.User != null && Context.User.Claims != null && Context.User.Claims.Count() > 0)
                     {
-                        
+
                         <a href="/CreditCards/Edit">
-                            <button type="button" style="font-size: medium;background-color: #ac8d99;" class="btn btn-outline-light">
+                            <button type="button" class="btnregular btn-outline-light">
                                 אמצעי תשלום
                             </button>
                         </a>
@@ -60,15 +92,15 @@
                     &nbsp;
 
 
-                        @*<a class="navbar-toggler-icon" asp-area="" asp-controller="Users" asp-action="SignOut">התנתק</a>*@
-                        @if (Context.User != null && Context.User.Claims != null && Context.User.Claims.Count() > 0)
-                        {
-                            <a class="btn" asp-area="" asp-controller="Users" asp-action="LogOut" style=" font-size: medium;">התנתק</a>
-                        }
-                        else
-                        {
-                            <a class="btn" asp-area="" asp-controller="Users" asp-action="SignIn" style=" font-size: medium;">התחבר</a>
-                        }
+                    @*<a class="navbar-toggler-icon" asp-area="" asp-controller="Users" asp-action="SignOut">התנתק</a>*@
+                    @if (Context.User != null && Context.User.Claims != null && Context.User.Claims.Count() > 0)
+                    {
+                        <a class="btn" asp-area="" asp-controller="Users" asp-action="LogOut" style=" font-size: medium;">התנתק</a>
+                    }
+                    else
+                    {
+                        <a class="btn" asp-area="" asp-controller="Users" asp-action="SignIn" style=" font-size: medium;">התחבר</a>
+                    }
 </div>
         </div>
     </nav>
@@ -85,43 +117,43 @@
 
 <!-- שורת שליטה למטה -->
 
-<footer class=" footer row " style="line-height:5px; position: absolute;bottom: -6%;">
+<footer class=" footer row ">
     <div class="col-md-3 col-lg-5 col-md-3 mx-lg-4 mb-2">
-        <h6 class="text-uppercase fw-bold mb-4" style="font-size:40px;">
+        <h6 class="text-uppercase fw-bold mb-4 big-font ">
             <i class="fas fa-gem me-2"></i>Buy&Cook
         </h6>
-        <p class=email style="font-size: 20px;">
+        <p class="email text-reset-p">
             <span>cookandbuyservice@cookandbuy.co.il</span>
         </p>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3384.844331944565!2d34.77671698488315!3d31.965119581224826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502b40824461e09%3A0xe0df0c49090fe29a!2z15TXqteW157Xldeo16ogMzYsINeo15DXqdeV158g15zXpteZ15XXnw!5e0!3m2!1siw!2sil!4v1622561158859!5m2!1siw!2sil" width="400" height="100" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
     <div class="col-lg-5 col-lg-5 col-xl-2 mx-auto mb-4">
-        <h6 class="text-uppercase fw-bold mb-4" style="font-size:40px;font-style:inherit">
+        <h6 class="text-uppercase fw-bold mb-4 big-font">
             קטגוריות
         </h6>
         <p>
 
-            <a href="/Recipes/Sweet/1" class="text-reset" style="font-size:20px">מאפים מתוקים</a>
+            <a href="/Recipes/Sweet/1" class="text-reset-p">מאפים מתוקים</a>
         </p>
         <p>
-            <a href="/Recipes/Salty/2" class="text-reset" style="font-size:20px">מאפים מלוחים</a>
+            <a href="/Recipes/Salty/2" class="text-reset-p">מאפים מלוחים</a>
         </p>
         <p>
-            <a href="/Recipes/Cakes/4" class="text-reset" style="font-size:20px">עוגות</a>
+            <a href="/Recipes/Cakes/4" class="text-reset-p">עוגות</a>
         </p>
     </div>
     <div class="col-lg-5 col-lg-5 col-xl-4 mx-auto mb-4">
-        <h6 class="text-uppercase fw-bold mb-4" style="font-size:40px;">
+        <h6 class="text-uppercase fw-bold mb-4 big-font">
             תפריט האתר
         </h6>
         <p>
-            <a href="/home/index" class="text-reset" style="font-size:20px">דף הבית</a>
+            <a href="/home/index" class="text-reset-p" >דף הבית</a>
         </p>
         <p>
-            <a href="/Categories/Index" class="text-reset" style="font-size:20px"> קטגוריות</a>
+            <a href="/Categories/Index" class="text-reset-p"> קטגוריות</a>
         </p>
         <p>
-            <a href="/home/privacy" class="text-reset" style="font-size:20px">צור קשר</a>
+            <a href="/home/privacy" class="text-reset-p">צור קשר</a>
         </p>
     </div>
 </footer>

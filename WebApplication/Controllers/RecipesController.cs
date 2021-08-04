@@ -21,22 +21,33 @@ namespace WebApplication.Controllers
             _context = context;
         }
 
-       
-      
-       
+
+
+
         // GET: Recipes
-        public async Task<IActionResult> Index(string query)
-        {
-           var webApplicationContext = _context.Recipe.Include(r => r.Category);
-           
-            if (!string.IsNullOrEmpty(query))
+        public async Task<IActionResult> Index(string table_filter, string filter) {
+            string Nomilk = "Nomilk";
+            string Nogluten = "Nogluten";
+            string All = "All";
+            var webApplicationContext = _context.Recipe.Include(r => r.Category);
+            if (!string.IsNullOrEmpty(filter))
             {
-                return View(_context.Recipe.Where(a => a.Name.Contains(query)));
+                if (filter.CompareTo(Nomilk) == 0)
+                {
+                    return View(_context.Recipe.Where(a => a.Milky.Contains("No") && a.Name.Contains(table_filter)));
+                }
+                if (filter.CompareTo(Nogluten) == 0)
+                {
+                    return View(_context.Recipe.Where(a => a.Gluten.Contains("No")&& a.Name.Contains(table_filter)));
+                }
+                if (filter.CompareTo(All) == 0)
+                {
+                    return View(_context.Recipe.Where(a => a.Name.Contains(table_filter)));
+                }
             }
-            return View(webApplicationContext);
-            
+            return View(_context.Recipe.Where(a => a.Name.Contains(table_filter)));
         }
-       
+    
         public async Task<IActionResult> Salty(int? id)
         {
             var webApplicationContext = _context.Recipe.Where(r => r.CategoryId == id);

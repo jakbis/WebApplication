@@ -39,3 +39,19 @@ col-md-8 {
     color:white;
     font-size:30px;
 }
+.sign-btn {
+    font-size: 25px;
+    color: hotpink;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+}
+.alr-btn {
+    font-size: 15px;
+    color: hotpink;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+}
+
+
+}
+

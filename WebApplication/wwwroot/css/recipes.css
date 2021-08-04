@@ -1,0 +1,41 @@
+﻿.main-h1 {
+    text-align: center;
+    font-size: 80px;
+    font-weight: revert;
+    -webkit-text-stroke: thin;
+    color: palevioletred;
+}
+.back {
+    background-color: #ac8d99;
+    font-size: large;
+}
+.back-xl {
+    background-color: #ac8d99;
+    font-size: x-large;
+}
+.btn .btn-outline-light .back {
+    background-color: #ac8d99;
+    font-size: large;
+}
+.cent {
+    text-align: center;
+    direction: ltr;
+    
+}
+.rtl {
+    text-align: right;
+    direction: rtl;
+}
+.smaller {
+    background-color: mediumpurple;
+    color: antiquewhite;
+    font-variant: all-small-caps;
+    font-size: 19px;
+    font-weight: bold;
+}
+input [type="Howtomake"] {
+     width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}

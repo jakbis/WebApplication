@@ -4,45 +4,41 @@
 @{
     ViewData["Title"] = "Create";
 }
-<style>
-    input[type="Howtomake"] {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        box-sizing: border-box;
-    }
-</style>
+@section styles{
+    <link rel="stylesheet" href="~/css/recipes.css" />
+}
+
 <h1 style="text-align:center">צור מתכון חדש</h1>
 
 <h4 style="text-align:center">מתכונים</h4>
 <hr />
-<div class="row" style="text-align:center">
-    <div class="col-md-4" style="direction:ltr;">
-        <form asp-action="Create" style="text-align:center">
+<div class="row cent" >
+    <div class="col-md-4 cent">
+        <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Name" class="control-label" style="text-align:right">שם המתכון</label>
+                <label asp-for="Name" class="control-label rtl" >שם המתכון</label>
                 <input asp-for="Name" class="form-control" placeholder="הכנס שם מתכון" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Author" class="control-label" style="text-align:right" hidden>שם משתמש</label>
+                <label asp-for="Author" class="control-label rtl" hidden>שם משתמש</label>
                 <input asp-for="Author" class="form-control" value="@User.Identity.Name" hidden>
                 <span asp-validation-for="Author" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Video" class="control-label" style="direction:rtl">וידאו</label>
+                <label asp-for="Video" class="control-label rtl" >וידאו</label>
                 <input asp-for="Video" class="form-control" placeholder="הכנס כתובת וידאו" />
                 <span asp-validation-for="Video" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ImagePath" class="control-label" style="direction:rtl">תמונה</label>
+                <label asp-for="ImagePath" class="control-label rtl" >תמונה</label>
                 <input asp-for="ImagePath" class="form-control" placeholder="הכנס לינק" />
                 <span asp-validation-for="ImagePath" class="text-danger"></span>
                 <label style="direction:rtl">מתכון</label>
             </div>
             <div class="form-group">
-                <textarea asp-for="Howtomake" dir="rtl" rows="30"cols="80" style="font-family:Times New Roman;color:black;">Put your text here</textarea>
+                <textarea asp-for="Howtomake" dir="rtl" rows="30" cols="80" style="font-family:Times New Roman;color:black;">Put your text here</textarea>
                 <span asp-validation-for="Howtomake" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -59,21 +55,20 @@
                 </select>
                 <span asp-validation-for="Gluten" class="text-danger"></span>
             </div>
-                    <div class="form-group">
-                        <label asp-for="CategoryId" class="control-label">קטגוריה</label>
-                        <select asp-for="CategoryId" class="form-control" asp-items=@ViewBag.CategoryId></select>
-                        <span asp-validation-for="CategoryId" class="text-danger"></span>
-                        <div class="form-group">
-                            <a class="btn btn-danger" onclick="history.go(-1)">Back to List</a>
-                            <input type="submit" value="Create" class="btn btn-primary" />
-                        </div>
-                    </div>
-</form>
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label">קטגוריה</label>
+                <select asp-for="CategoryId" class="form-control" asp-items=@ViewBag.CategoryId></select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+                <div class="form-group">
+                    <a class="btn btn-danger" onclick="history.go(-1)">Back to List</a>
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 
 
-@*<input type="button" onclick="history.go(-1)" value="Return to list"/>*@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

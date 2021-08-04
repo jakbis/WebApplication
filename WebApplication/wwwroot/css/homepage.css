@@ -1,6 +1,6 @@
 ﻿body {
     margin: 0;
-    color: white;
+    color: black;
     background: #c8c8c8;
 
 }
@@ -191,4 +191,14 @@ a {
 
 .foot-lnk {
     text-align: center;
+}
+t {
+    direction: rtl;
+    font-size: large;
+    font-weight: bold;
+    
+}
+p {
+    font-size:25px;
+    text-decoration:underline;
 }

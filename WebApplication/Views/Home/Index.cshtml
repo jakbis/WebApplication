@@ -36,12 +36,13 @@
                         @if (!(Context.User != null && Context.User.Claims != null && Context.User.Claims.Count() > 0))
                         {
                             <div class='buttons'>
-                                <a href="/Users/SignIn" class='btn btn-outline-light' style="background-color: #ac8d99;font-size:xx-large;">Sign In</a>
-                                
-                                <a href="/Users/SignUp" class='btn btn-outline-light' style="background-color: #ac8d99;font-size:xx-large;">Sign Up</a>
+                                <a href="/Users/SignIn" class='btn btn-outline-light' style="background-color: #ac8d99;font-size:x-large;">Sign In</a>
+
+                                <a href="/Users/SignUp" class='btn btn-outline-light' style="background-color: #ac8d99;font-size:x-large;">Sign Up</a>
                             </div>
                         }
-                        
+                        &nbsp;
+                        &nbsp;
                     </div>
                 </div>
             </div>
@@ -54,6 +55,8 @@
     <div class=' features text-center'>
         <div class='container'>
             <div class='box'>
+                &nbsp;
+                &nbsp;
                 <i class='fa fa-youtube-play fa-3x'></i>
                 <h3>סרטוני הדרכה</h3>
                 <p>תוכלו להינות ממגוון סרטוני הדרכה מפורטים לצורך ביצוע המתכון על הצד הטוב ביותר</p>
@@ -136,7 +139,7 @@
                         </p>
                         @if (User.IsInRole("Client") || User.IsInRole("Admin"))
                         {
-                <button class='upper' onclick="window.location.href='/Recipes/Details/94'">לצפייה</button> }
+                <button class='upper' onclick="window.location.href='/Recipes/Details/84'">לצפייה</button> }
             else
             {
                 <button class='upper' onclick="MessageBox('לצפייה במתכון עליך להירשם כ-משתמש פרימיום')">לצפייה</button>}
