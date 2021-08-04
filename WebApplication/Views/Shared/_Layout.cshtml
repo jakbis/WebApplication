@@ -1,8 +1,6 @@
 ﻿@RenderSection("scripts", required: false)
 @RenderSection("styles", required: false)
 <!DOCTYPE html>
-<html lang="en" style="height:100%">
-
 <head>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
@@ -14,52 +12,38 @@
     <!-- שורת שליטה למעלה -->
     <nav class="navbar navbar-expand-lg navbar-light d-md-block" style="background-color:white;">
         <div class="container">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" style="position:relative;left:10px;white-space:nowrap">Buy & Cook</a>
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" style="        position: relative;
+        left: 10px;
+        white-space: nowrap;
+        height: 56px;
+">Buy & Cook</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             &nbsp;
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1" style="word-spacing:25px;">
+                <ul class="navbar-nav flex-grow-1">
                     <a href="/Home/Index">
-                        <button type="button" class="btnregular btn-outline-light">דף הבית</button>
+                        <button id="buttoncol" type="button" class="btn btnregular btn-outline-light" style="    background-color: palevioletred !important;
+    font-weight: bold !important;">דף הבית</button>
                     </a>
                     &nbsp;
                     <a href="/Categories/Index">
-                        <button type="button" class="btnregular btn-outline-light">קטגוריות</button>
+                        <button id="buttoncol" type="button" class="btn btnregular btn-outline-light" style="    background-color: palevioletred !important;
+    font-weight: bold !important;">קטגוריות</button>
                     </a>
                     &nbsp;
 
 
                     <a href="/Home/Privacy">
-                        <button type="button"  class="btnregular btn-outline-light">
+                        <button id="buttoncol" type="button"  class="btn btnregular btn-outline-light" style="    background-color: palevioletred !important;
+    font-weight: bold !important;">
                             תקנון האתר
                         </button>
                     </a>
                     &nbsp;
                     <form asp-controller="Recipes" asp-action="Index">
-                        @*   <div class="input-group rounded">
-                <input id="query" name="query" type="search" class="form-control rounded" aria-describedby="search-addon" placeholder="Search.." aria-label="Search" style="background-color:white;height:35px;width:150px;border-color:black;" />
-
-                <button type="submit" style="font-size: xx-large;width:40px;height:44px; " class="btn "><i class="fa fa-search" style="display:block;"></i></button>
-            </div>
-                            <div class="container">
-                                <div class="row searchFilter">
-                                    <div class="col-sm-12">
-                                        <div class="input-group">
-                                            <input id="table_filter" type="text" class="form-control" aria-label="Text input with segmented button dropdown"required min="1">
-                                            <select class="choiceStyle" name="filter" id="filter" required>
-                                                <option value="All">הכל</option>
-                                                <option value="Nomilk">ללא חלב</option>
-                                                <option value="Nogloten">ללא גלוטן</option>
-                                            </select>
-                                            <button id="searchBtn" type="submit" class="btn btn-secondary btn-search"><span class="glyphicon glyphicon-search">&nbsp;</span> <span class="label-icon">חיפוש</span></button>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>*@
 
                         <div class="input-group">
                             
@@ -72,7 +56,8 @@
                                 <option value="Nogluten">ללא גלוטן</option>
                             </select>
                             &nbsp;
-                            <button type="submit" value="Search" class="btnregular btn-outline-light">
+                            <button type="submit" value="Search" class="btn btnregular btn-outline-light" style="    background-color: palevioletred !important;
+    font-weight: bold !important;">
                                 Search
                             </button>
 
@@ -84,22 +69,30 @@
                     {
 
                         <a href="/CreditCards/Edit">
-                            <button type="button" class="btnregular btn-outline-light">
+                            <button id="buttoncol" type="button" class="btn btnregular btn-outline-light" style="    background-color: palevioletred !important;
+    font-weight: bold !important;">
                                 אמצעי תשלום
                             </button>
                         </a>
                     }
                     &nbsp;
-
-
-                    @*<a class="navbar-toggler-icon" asp-area="" asp-controller="Users" asp-action="SignOut">התנתק</a>*@
                     @if (Context.User != null && Context.User.Claims != null && Context.User.Claims.Count() > 0)
                     {
-                        <a class="btn" asp-area="" asp-controller="Users" asp-action="LogOut" style=" font-size: medium;">התנתק</a>
+                        <a class="btn" asp-area="" asp-controller="Users" asp-action="LogOut" style="        font-size: medium;
+        background-color: palevioletred !important;
+        font-weight: bold !important;
+        height: 40px;
+        color: aliceblue;
+  ">התנתק</a>
                     }
                     else
                     {
-                        <a class="btn" asp-area="" asp-controller="Users" asp-action="SignIn" style=" font-size: medium;">התחבר</a>
+                        <a class="btn" asp-area="" asp-controller="Users" asp-action="SignIn" style="        font-size: medium;
+        background-color: palevioletred !important;
+        font-weight: bold !important;
+        height: 37px;
+        color: aliceblue;
+  ">התחבר</a>
                     }
 </div>
         </div>
@@ -117,7 +110,7 @@
 
 <!-- שורת שליטה למטה -->
 
-<footer class=" footer row ">
+<footer class="footer row" style="position:absolute;bottom:-5%">
     <div class="col-md-3 col-lg-5 col-md-3 mx-lg-4 mb-2">
         <h6 class="text-uppercase fw-bold mb-4 big-font ">
             <i class="fas fa-gem me-2"></i>Buy&Cook
@@ -157,7 +150,6 @@
         </p>
     </div>
 </footer>
-</html>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>

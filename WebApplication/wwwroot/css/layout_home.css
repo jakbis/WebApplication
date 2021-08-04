@@ -8,6 +8,8 @@ body {
     background-size: 100% 100%;
 }
 .footerr {
+    position: absolute;
+    bottom: -5%;
     position: unset;
     bottom: -35px;
     width: 100%;
@@ -19,6 +21,8 @@ body {
 }
 
 .footer {
+    position: absolute !important;
+    bottom: -5% !important;
     bottom: 0px;
     left: 0;
     width: 100%;
@@ -30,6 +34,11 @@ body {
     position: absolute;
     bottom: -6%;
     display: -webkit-box
+}
+
+#buttoncol {
+    background-color: palevioletred !important;
+    font-weight: bold !important;
 }
 .big-font {
     font-size: 40px;

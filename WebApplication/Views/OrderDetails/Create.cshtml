@@ -117,44 +117,6 @@
     </div>
 </div>
 
-@*<h1>Create</h1>
-
-    <h4>OrderDetails</h4>
-    <hr />
-    <div class="row">
-        <div class="col-md-4">
-            <form asp-action="Create">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="Quantity" class="control-label"></label>
-                    <input asp-for="Quantity" class="form-control" />
-                    <span asp-validation-for="Quantity" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="PriceOrder" class="control-label"></label>
-                    <input asp-for="PriceOrder" class="form-control" />
-                    <span asp-validation-for="PriceOrder" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="addressOrder" class="control-label"></label>
-                    <input asp-for="addressOrder" class="form-control" />
-                    <span asp-validation-for="addressOrder" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="PhoneNumberOrder" class="control-label"></label>
-                    <input asp-for="PhoneNumberOrder" class="form-control" />
-                    <span asp-validation-for="PhoneNumberOrder" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-primary" />
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <div>
-        <a asp-action="Index">Back to List</a>
-    </div>*@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
